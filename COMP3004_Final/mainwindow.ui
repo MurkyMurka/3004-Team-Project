@@ -18,33 +18,20 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>50</y>
       <width>701</width>
-      <height>571</height>
+      <height>521</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="HomePage">
-     <widget class="QProgressBar" name="BatteryBar">
+     <widget class="QLabel" name="BolusIcon">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>20</y>
-        <width>151</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="value">
-       <number>24</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="BolusIcon">
-      <property name="geometry">
-       <rect>
-        <x>410</x>
-        <y>30</y>
         <width>16</width>
         <height>17</height>
        </rect>
@@ -56,8 +43,8 @@
      <widget class="QProgressBar" name="BolusBar">
       <property name="geometry">
        <rect>
-        <x>430</x>
-        <y>20</y>
+        <x>30</x>
+        <y>10</y>
         <width>141</width>
         <height>31</height>
        </rect>
@@ -69,8 +56,8 @@
      <widget class="QLabel" name="BolusNum">
       <property name="geometry">
        <rect>
-        <x>470</x>
-        <y>60</y>
+        <x>70</x>
+        <y>50</y>
         <width>71</width>
         <height>21</height>
        </rect>
@@ -83,7 +70,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>450</y>
+        <y>390</y>
         <width>271</width>
         <height>101</height>
        </rect>
@@ -96,7 +83,7 @@
       <property name="geometry">
        <rect>
         <x>300</x>
-        <y>450</y>
+        <y>390</y>
         <width>271</width>
         <height>101</height>
        </rect>
@@ -111,17 +98,17 @@
         <x>10</x>
         <y>80</y>
         <width>431</width>
-        <height>351</height>
+        <height>291</height>
        </rect>
       </property>
      </widget>
      <widget class="QPushButton" name="TandemLogo">
       <property name="geometry">
        <rect>
-        <x>582</x>
+        <x>580</x>
         <y>20</y>
         <width>111</width>
-        <height>531</height>
+        <height>471</height>
        </rect>
       </property>
       <property name="text">
@@ -153,6 +140,7 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="page"/>
    </widget>
    <widget class="QPushButton" name="OnButton">
     <property name="geometry">
@@ -178,6 +166,45 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="text">
      <string>OFF</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ChargeButton">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>390</y>
+      <width>83</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Charge</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="UnplugButton">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>430</y>
+      <width>83</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Unplug</string>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="BatteryBar">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
     </property>
    </widget>
   </widget>

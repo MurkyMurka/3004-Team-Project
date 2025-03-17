@@ -30,7 +30,6 @@ public:
     QWidget *centralwidget;
     QStackedWidget *stackedWidget;
     QWidget *HomePage;
-    QProgressBar *BatteryBar;
     QLabel *BolusIcon;
     QProgressBar *BolusBar;
     QLabel *BolusNum;
@@ -40,8 +39,12 @@ public:
     QPushButton *TandemLogo;
     QWidget *OffPage;
     QTextBrowser *textBrowser;
+    QWidget *page;
     QPushButton *OnButton;
     QPushButton *OffButton;
+    QPushButton *ChargeButton;
+    QPushButton *UnplugButton;
+    QProgressBar *BatteryBar;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -54,35 +57,31 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
-        stackedWidget->setGeometry(QRect(0, 0, 701, 571));
+        stackedWidget->setGeometry(QRect(0, 50, 701, 521));
         HomePage = new QWidget();
         HomePage->setObjectName(QString::fromUtf8("HomePage"));
-        BatteryBar = new QProgressBar(HomePage);
-        BatteryBar->setObjectName(QString::fromUtf8("BatteryBar"));
-        BatteryBar->setGeometry(QRect(10, 20, 151, 31));
-        BatteryBar->setValue(24);
         BolusIcon = new QLabel(HomePage);
         BolusIcon->setObjectName(QString::fromUtf8("BolusIcon"));
-        BolusIcon->setGeometry(QRect(410, 30, 16, 17));
+        BolusIcon->setGeometry(QRect(10, 20, 16, 17));
         BolusBar = new QProgressBar(HomePage);
         BolusBar->setObjectName(QString::fromUtf8("BolusBar"));
-        BolusBar->setGeometry(QRect(430, 20, 141, 31));
+        BolusBar->setGeometry(QRect(30, 10, 141, 31));
         BolusBar->setValue(24);
         BolusNum = new QLabel(HomePage);
         BolusNum->setObjectName(QString::fromUtf8("BolusNum"));
-        BolusNum->setGeometry(QRect(470, 60, 71, 21));
+        BolusNum->setGeometry(QRect(70, 50, 71, 21));
         OptionsButton = new QPushButton(HomePage);
         OptionsButton->setObjectName(QString::fromUtf8("OptionsButton"));
-        OptionsButton->setGeometry(QRect(10, 450, 271, 101));
+        OptionsButton->setGeometry(QRect(10, 390, 271, 101));
         BolusButton = new QPushButton(HomePage);
         BolusButton->setObjectName(QString::fromUtf8("BolusButton"));
-        BolusButton->setGeometry(QRect(300, 450, 271, 101));
+        BolusButton->setGeometry(QRect(300, 390, 271, 101));
         graphicsView = new QGraphicsView(HomePage);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(10, 80, 431, 351));
+        graphicsView->setGeometry(QRect(10, 80, 431, 291));
         TandemLogo = new QPushButton(HomePage);
         TandemLogo->setObjectName(QString::fromUtf8("TandemLogo"));
-        TandemLogo->setGeometry(QRect(582, 20, 111, 531));
+        TandemLogo->setGeometry(QRect(580, 20, 111, 471));
         stackedWidget->addWidget(HomePage);
         OffPage = new QWidget();
         OffPage->setObjectName(QString::fromUtf8("OffPage"));
@@ -90,12 +89,25 @@ public:
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
         textBrowser->setGeometry(QRect(10, 20, 651, 551));
         stackedWidget->addWidget(OffPage);
+        page = new QWidget();
+        page->setObjectName(QString::fromUtf8("page"));
+        stackedWidget->addWidget(page);
         OnButton = new QPushButton(centralwidget);
         OnButton->setObjectName(QString::fromUtf8("OnButton"));
         OnButton->setGeometry(QRect(710, 110, 83, 25));
         OffButton = new QPushButton(centralwidget);
         OffButton->setObjectName(QString::fromUtf8("OffButton"));
         OffButton->setGeometry(QRect(710, 160, 83, 25));
+        ChargeButton = new QPushButton(centralwidget);
+        ChargeButton->setObjectName(QString::fromUtf8("ChargeButton"));
+        ChargeButton->setGeometry(QRect(710, 390, 83, 25));
+        UnplugButton = new QPushButton(centralwidget);
+        UnplugButton->setObjectName(QString::fromUtf8("UnplugButton"));
+        UnplugButton->setGeometry(QRect(710, 430, 83, 25));
+        BatteryBar = new QProgressBar(centralwidget);
+        BatteryBar->setObjectName(QString::fromUtf8("BatteryBar"));
+        BatteryBar->setGeometry(QRect(10, 10, 151, 31));
+        BatteryBar->setValue(24);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -107,7 +119,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -134,6 +146,8 @@ public:
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">OFF</p></body></html>", nullptr));
         OnButton->setText(QCoreApplication::translate("MainWindow", "ON", nullptr));
         OffButton->setText(QCoreApplication::translate("MainWindow", "OFF", nullptr));
+        ChargeButton->setText(QCoreApplication::translate("MainWindow", "Charge", nullptr));
+        UnplugButton->setText(QCoreApplication::translate("MainWindow", "Unplug", nullptr));
     } // retranslateUi
 
 };
