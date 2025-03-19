@@ -9,11 +9,19 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->OnButton, SIGNAL(clicked()), this, SLOT(turnOn()));
     connect(ui->OffButton, SIGNAL(clicked()), this, SLOT(turnOff()));
-    connect(ui->TandemLogo, SIGNAL(clicked()), this, SLOT(turnOn()));
+    connect(ui->TandemLogo, SIGNAL(clicked()), this, SLOT(returnHomePage()));
     connect(ui->ChargeButton, &QPushButton::clicked, this, [this]() {
         QtConcurrent::run(this, &MainWindow::chargeDevice);
     });
     connect(ui->UnplugButton, SIGNAL(clicked()), this, SLOT(unplugCharger()));
+    connect(ui->OptionsButton, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->OptionsPage);
+    });
+    connect(ui->ConfigurationButton, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->ConfigPage);
+    });
+
+    configData = new ConfigData(ui->stackedWidget->findChild<QWidget*>("ConfigPage"));
 
     isOn = false;
     turnOff();
@@ -26,18 +34,55 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete configData;
 }
 
 void MainWindow::turnOff() {
     ui->stackedWidget->setCurrentWidget(ui->OffPage);
     isOn = false;
+    existPIN = configData->isPINSet();
+    if(existPIN) {
+        ui->PINFrame->show();
+        ui->PIN->setText("");
+        ui->ErrorPIN->setText("");
+    }else {
+        ui->PINFrame->hide();
+    }
 }
 
 void MainWindow::turnOn() {
     if(!isOn && battery > 0) {
+        if(existPIN) {
+            if(checkingPIN()) {
+                ui->stackedWidget->setCurrentWidget(ui->HomePage);
+                isOn = true;
+            }else {
+                ui->ErrorPIN->setText("Incorrect PIN");
+                ui->ErrorPIN->setStyleSheet("color: red;");
+            }
+        }else {
+            ui->stackedWidget->setCurrentWidget(ui->HomePage);
+            isOn = true;
+        }
+    }
+    QtConcurrent::run(this, &MainWindow::batteryDrain);
+}
+
+bool MainWindow::checkingPIN() {
+    QString pin = ui->PIN->toPlainText();
+    if (pin.contains(QRegularExpression("\\D"))) {
+        return false;
+    } else {
+        if(pin.toInt() == configData->getCurPIN()) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void MainWindow::returnHomePage() {
+    if(isOn) {
         ui->stackedWidget->setCurrentWidget(ui->HomePage);
-        isOn = true;
-        QtConcurrent::run(this, &MainWindow::batteryDrain);
     }
 }
 
@@ -45,7 +90,11 @@ void MainWindow::chargeDevice() {
     isCharging = true;
     while(isCharging && battery < MAX_BATT) {
         battery++;
-        ui->BatteryBar->setValue(battery);
+        
+        QMetaObject::invokeMethod(this, [this]() {
+            ui->BatteryBar->setValue(battery);
+        }, Qt::QueuedConnection);
+
         QThread::msleep(500);
     }
 }
@@ -58,9 +107,12 @@ void MainWindow::batteryDrain() {
     while(isOn) {
         QThread::sleep(3);
         battery--;
-        ui->BatteryBar->setValue(battery);
-        if(battery <= 0) {
-            turnOff();
-        }
+        
+        QMetaObject::invokeMethod(this, [this]() {
+            ui->BatteryBar->setValue(battery);
+            if (battery <= 0) {
+                turnOff();
+            }
+        }, Qt::QueuedConnection);
     }
 }
