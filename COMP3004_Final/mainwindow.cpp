@@ -17,11 +17,17 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->OptionsButton, &QPushButton::clicked, this, [this]() {
         ui->stackedWidget->setCurrentWidget(ui->OptionsPage);
     });
-    connect(ui->ConfigurationButton, &QPushButton::clicked, this, [this]() {
-        ui->stackedWidget->setCurrentWidget(ui->ConfigPage);
+    connect(ui->SettingsButton, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->SettingsPage_1);
+    });
+    connect(ui->DownButton, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->SettingsPage_2);
+    });
+    connect(ui->UpButton, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->SettingsPage_1);
     });
 
-    configData = new ConfigData(ui->stackedWidget->findChild<QWidget*>("ConfigPage"));
+    configData = new ConfigData(ui->stackedWidget->findChild<QWidget*>("SettingsPage_1"), ui->stackedWidget->findChild<QWidget*>("SettingsPage_2"));
 
     isOn = false;
     turnOff();

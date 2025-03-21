@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QLabel" name="BolusIcon">
@@ -180,7 +180,7 @@ p, li { white-space: pre-wrap; }
      </widget>
     </widget>
     <widget class="QWidget" name="OptionsPage">
-     <widget class="QPushButton" name="ConfigurationButton">
+     <widget class="QPushButton" name="SettingsButton">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -190,17 +190,17 @@ p, li { white-space: pre-wrap; }
        </rect>
       </property>
       <property name="text">
-       <string>Configuration</string>
+       <string>Settings</string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="ConfigPage">
+    <widget class="QWidget" name="SettingsPage_1">
      <widget class="QGraphicsView" name="DTView">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>541</width>
+        <width>481</width>
         <height>231</height>
        </rect>
       </property>
@@ -210,7 +210,7 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>10</x>
         <y>260</y>
-        <width>541</width>
+        <width>481</width>
         <height>231</height>
        </rect>
       </property>
@@ -319,6 +319,94 @@ p, li { white-space: pre-wrap; }
         <x>350</x>
         <y>370</y>
         <width>81</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="DownButton">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>460</y>
+        <width>41</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>\/</string>
+      </property>
+      <property name="icon">
+       <iconset theme="DownArrow">
+        <normaloff>.</normaloff>.</iconset>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="SettingsPage_2">
+     <widget class="QGraphicsView" name="BluetoothView">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>481</width>
+        <height>231</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="UpButton">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>10</y>
+        <width>41</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>/\</string>
+      </property>
+      <property name="icon">
+       <iconset theme="DownArrow">
+        <normaloff>.</normaloff>.</iconset>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>71</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Bluetooth</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="BluetoothCheckBox">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>60</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::RightToLeft</enum>
+      </property>
+      <property name="text">
+       <string>Bluetooth</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="BTMess">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>150</y>
+        <width>211</width>
         <height>17</height>
        </rect>
       </property>

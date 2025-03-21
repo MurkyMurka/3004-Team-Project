@@ -10,7 +10,9 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QLabel>
@@ -45,8 +47,8 @@ public:
     QTextEdit *PIN;
     QLabel *ErrorPIN;
     QWidget *OptionsPage;
-    QPushButton *ConfigurationButton;
-    QWidget *ConfigPage;
+    QPushButton *SettingsButton;
+    QWidget *SettingsPage_1;
     QGraphicsView *DTView;
     QGraphicsView *PINView;
     QLabel *DTLabel;
@@ -58,6 +60,13 @@ public:
     QPushButton *SetPINButton;
     QLabel *label_2;
     QLabel *ErrorNewPIN;
+    QPushButton *DownButton;
+    QWidget *SettingsPage_2;
+    QGraphicsView *BluetoothView;
+    QPushButton *UpButton;
+    QLabel *label_5;
+    QCheckBox *BluetoothCheckBox;
+    QLabel *BTMess;
     QPushButton *OnButton;
     QPushButton *OffButton;
     QPushButton *ChargeButton;
@@ -121,46 +130,77 @@ public:
         stackedWidget->addWidget(OffPage);
         OptionsPage = new QWidget();
         OptionsPage->setObjectName(QString::fromUtf8("OptionsPage"));
-        ConfigurationButton = new QPushButton(OptionsPage);
-        ConfigurationButton->setObjectName(QString::fromUtf8("ConfigurationButton"));
-        ConfigurationButton->setGeometry(QRect(10, 10, 251, 101));
+        SettingsButton = new QPushButton(OptionsPage);
+        SettingsButton->setObjectName(QString::fromUtf8("SettingsButton"));
+        SettingsButton->setGeometry(QRect(10, 10, 251, 101));
         stackedWidget->addWidget(OptionsPage);
-        ConfigPage = new QWidget();
-        ConfigPage->setObjectName(QString::fromUtf8("ConfigPage"));
-        DTView = new QGraphicsView(ConfigPage);
+        SettingsPage_1 = new QWidget();
+        SettingsPage_1->setObjectName(QString::fromUtf8("SettingsPage_1"));
+        DTView = new QGraphicsView(SettingsPage_1);
         DTView->setObjectName(QString::fromUtf8("DTView"));
-        DTView->setGeometry(QRect(10, 10, 541, 231));
-        PINView = new QGraphicsView(ConfigPage);
+        DTView->setGeometry(QRect(10, 10, 481, 231));
+        PINView = new QGraphicsView(SettingsPage_1);
         PINView->setObjectName(QString::fromUtf8("PINView"));
-        PINView->setGeometry(QRect(10, 260, 541, 231));
-        DTLabel = new QLabel(ConfigPage);
+        PINView->setGeometry(QRect(10, 260, 481, 231));
+        DTLabel = new QLabel(SettingsPage_1);
         DTLabel->setObjectName(QString::fromUtf8("DTLabel"));
         DTLabel->setGeometry(QRect(20, 20, 81, 17));
-        PINLabel = new QLabel(ConfigPage);
+        PINLabel = new QLabel(SettingsPage_1);
         PINLabel->setObjectName(QString::fromUtf8("PINLabel"));
         PINLabel->setGeometry(QRect(20, 270, 241, 17));
-        label = new QLabel(ConfigPage);
+        label = new QLabel(SettingsPage_1);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(100, 310, 91, 17));
-        CurrentPIN = new QTextBrowser(ConfigPage);
+        CurrentPIN = new QTextBrowser(SettingsPage_1);
         CurrentPIN->setObjectName(QString::fromUtf8("CurrentPIN"));
         CurrentPIN->setGeometry(QRect(190, 310, 141, 21));
-        DeletePINButton = new QPushButton(ConfigPage);
+        DeletePINButton = new QPushButton(SettingsPage_1);
         DeletePINButton->setObjectName(QString::fromUtf8("DeletePINButton"));
         DeletePINButton->setGeometry(QRect(350, 310, 83, 25));
-        NewPIN = new QTextEdit(ConfigPage);
+        NewPIN = new QTextEdit(SettingsPage_1);
         NewPIN->setObjectName(QString::fromUtf8("NewPIN"));
         NewPIN->setGeometry(QRect(190, 370, 141, 21));
-        SetPINButton = new QPushButton(ConfigPage);
+        SetPINButton = new QPushButton(SettingsPage_1);
         SetPINButton->setObjectName(QString::fromUtf8("SetPINButton"));
         SetPINButton->setGeometry(QRect(220, 410, 83, 25));
-        label_2 = new QLabel(ConfigPage);
+        label_2 = new QLabel(SettingsPage_1);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(120, 370, 71, 17));
-        ErrorNewPIN = new QLabel(ConfigPage);
+        ErrorNewPIN = new QLabel(SettingsPage_1);
         ErrorNewPIN->setObjectName(QString::fromUtf8("ErrorNewPIN"));
         ErrorNewPIN->setGeometry(QRect(350, 370, 81, 17));
-        stackedWidget->addWidget(ConfigPage);
+        DownButton = new QPushButton(SettingsPage_1);
+        DownButton->setObjectName(QString::fromUtf8("DownButton"));
+        DownButton->setGeometry(QRect(510, 460, 41, 31));
+        QIcon icon;
+        QString iconThemeName = QString::fromUtf8("DownArrow");
+        if (QIcon::hasThemeIcon(iconThemeName)) {
+            icon = QIcon::fromTheme(iconThemeName);
+        } else {
+            icon.addFile(QString::fromUtf8("."), QSize(), QIcon::Normal, QIcon::Off);
+        }
+        DownButton->setIcon(icon);
+        stackedWidget->addWidget(SettingsPage_1);
+        SettingsPage_2 = new QWidget();
+        SettingsPage_2->setObjectName(QString::fromUtf8("SettingsPage_2"));
+        BluetoothView = new QGraphicsView(SettingsPage_2);
+        BluetoothView->setObjectName(QString::fromUtf8("BluetoothView"));
+        BluetoothView->setGeometry(QRect(10, 10, 481, 231));
+        UpButton = new QPushButton(SettingsPage_2);
+        UpButton->setObjectName(QString::fromUtf8("UpButton"));
+        UpButton->setGeometry(QRect(510, 10, 41, 31));
+        UpButton->setIcon(icon);
+        label_5 = new QLabel(SettingsPage_2);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setGeometry(QRect(20, 20, 71, 17));
+        BluetoothCheckBox = new QCheckBox(SettingsPage_2);
+        BluetoothCheckBox->setObjectName(QString::fromUtf8("BluetoothCheckBox"));
+        BluetoothCheckBox->setGeometry(QRect(30, 60, 91, 23));
+        BluetoothCheckBox->setLayoutDirection(Qt::RightToLeft);
+        BTMess = new QLabel(SettingsPage_2);
+        BTMess->setObjectName(QString::fromUtf8("BTMess"));
+        BTMess->setGeometry(QRect(140, 150, 211, 17));
+        stackedWidget->addWidget(SettingsPage_2);
         OnButton = new QPushButton(centralwidget);
         OnButton->setObjectName(QString::fromUtf8("OnButton"));
         OnButton->setGeometry(QRect(710, 110, 83, 25));
@@ -191,7 +231,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -217,7 +257,7 @@ public:
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">OFF</p></body></html>", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "PIN:", nullptr));
         ErrorPIN->setText(QString());
-        ConfigurationButton->setText(QCoreApplication::translate("MainWindow", "Configuration", nullptr));
+        SettingsButton->setText(QCoreApplication::translate("MainWindow", "Settings", nullptr));
         DTLabel->setText(QCoreApplication::translate("MainWindow", "Date / Time", nullptr));
         PINLabel->setText(QCoreApplication::translate("MainWindow", "PIN (Personal Identification Number)", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Current PIN:", nullptr));
@@ -225,6 +265,11 @@ public:
         SetPINButton->setText(QCoreApplication::translate("MainWindow", "Set PIN", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "New PIN:", nullptr));
         ErrorNewPIN->setText(QString());
+        DownButton->setText(QCoreApplication::translate("MainWindow", "\\/", nullptr));
+        UpButton->setText(QCoreApplication::translate("MainWindow", "/\\", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "Bluetooth", nullptr));
+        BluetoothCheckBox->setText(QCoreApplication::translate("MainWindow", "Bluetooth", nullptr));
+        BTMess->setText(QString());
         OnButton->setText(QCoreApplication::translate("MainWindow", "ON", nullptr));
         OffButton->setText(QCoreApplication::translate("MainWindow", "OFF", nullptr));
         ChargeButton->setText(QCoreApplication::translate("MainWindow", "Charge", nullptr));

@@ -1,14 +1,19 @@
 #include "configdata.h"
 
-ConfigData::ConfigData(QWidget *_configPage) : configPage(_configPage)
+ConfigData::ConfigData(QWidget *_settingsPage1, QWidget *_settingsPage2) : settingsPage1(_settingsPage1), settingsPage2(_settingsPage2)
 {
     curDateTime = QDateTime::currentDateTime();
     curPIN = -1;
+    bluetoothActive = false;
 
-    QPushButton *deletePINButton = configPage->findChild<QPushButton*>("DeletePINButton");
+    QPushButton *deletePINButton = settingsPage1->findChild<QPushButton*>("DeletePINButton");
     connect(deletePINButton, &QPushButton::clicked, this, &ConfigData::deletePIN);
-    QPushButton *setPINButton = configPage->findChild<QPushButton*>("SetPINButton");
+    
+    QPushButton *setPINButton = settingsPage1->findChild<QPushButton*>("SetPINButton");
     connect(setPINButton, &QPushButton::clicked, this, &ConfigData::setPIN);
+
+    QCheckBox *bluetoothCheckBox = settingsPage2->findChild<QCheckBox*>("BluetoothCheckBox");
+    connect(bluetoothCheckBox, &QCheckBox::toggled, this, &ConfigData::bluetoothCheck);
 }
 
 void ConfigData::setCurDateTime(QDate newDate, QTime newTime) {
@@ -17,7 +22,7 @@ void ConfigData::setCurDateTime(QDate newDate, QTime newTime) {
 }
 
 void ConfigData::setPIN() {
-    QString newPIN = configPage->findChild<QTextEdit*>("NewPIN")->toPlainText();
+    QString newPIN = settingsPage1->findChild<QTextEdit*>("NewPIN")->toPlainText();
     if (newPIN.contains(QRegularExpression("\\D"))) {
         curPIN = -1;
     } else {
@@ -25,18 +30,30 @@ void ConfigData::setPIN() {
     }
 
     if(isPINSet()) {
-        configPage->findChild<QTextBrowser*>("CurrentPIN")->setText(newPIN);
-        configPage->findChild<QTextEdit*>("NewPIN")->setText("");
-        configPage->findChild<QLabel*>("ErrorNewPIN")->setText("");
+        settingsPage1->findChild<QTextBrowser*>("CurrentPIN")->setText(newPIN);
+        settingsPage1->findChild<QTextEdit*>("NewPIN")->setText("");
+        settingsPage1->findChild<QLabel*>("ErrorNewPIN")->setText("");
     }else {
-        configPage->findChild<QLabel*>("ErrorNewPIN")->setText("Invalid PIN");
-        configPage->findChild<QLabel*>("ErrorNewPIN")->setStyleSheet("color: red;");
+        settingsPage1->findChild<QLabel*>("ErrorNewPIN")->setText("Invalid PIN");
+        settingsPage1->findChild<QLabel*>("ErrorNewPIN")->setStyleSheet("color: red;");
     }
 }
 
 void ConfigData::deletePIN() {
     curPIN = -1;
-    configPage->findChild<QTextBrowser*>("CurrentPIN")->setText("");
+    settingsPage1->findChild<QTextBrowser*>("CurrentPIN")->setText("");
+}
+
+void ConfigData::bluetoothCheck(bool checked) {
+    bluetoothActive = checked;
+    QLabel *tempLabel = settingsPage2->findChild<QLabel*>("BTMess");
+    tempLabel->show();
+    if(checked) {
+        tempLabel->setText("Bluetooth is active");
+    }else {
+        tempLabel->setText("Bluetooth is inactive");
+    }
+    QTimer::singleShot(2000, tempLabel, &QLabel::hide);
 }
 
 bool ConfigData::isPINSet() const {
