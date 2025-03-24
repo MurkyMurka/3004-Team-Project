@@ -29,6 +29,10 @@ public slots:
     void chargeDevice();
     void unplugCharger();
 
+private slots:
+
+    void on_dateTimeEditor_dateTimeChanged(const QDateTime &dateTime);
+
 private:
     Ui::MainWindow *ui;
     bool isOn;
@@ -39,5 +43,6 @@ private:
 
     void batteryDrain();
     bool checkingPIN();
+    void changeDateTime(const QDateTime &datePlusTime2);
 };
 #endif // MAINWINDOW_H

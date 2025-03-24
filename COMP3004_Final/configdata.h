@@ -2,7 +2,7 @@
 #define CONFIGDATA_H
 
 #include <QObject>
-#include <QDateTime>
+#include <QDateTimeEdit>
 #include <QWidget>
 #include <QPushButton>
 #include <QTextBrowser>
@@ -22,9 +22,10 @@ public:
     ~ConfigData() { /* empty */ }
     bool isPINSet() const;
     int getCurPIN() const;
+    QDateTime getCurDateTime() const;
 
 public slots:
-    void setCurDateTime(QDate date, QTime time);
+    void setCurDateTime(const QDateTime &datePlusTimeSetting);
     void setPIN();
     void deletePIN();
     void bluetoothCheck(bool checked);

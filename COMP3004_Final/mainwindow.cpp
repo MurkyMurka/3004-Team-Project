@@ -27,6 +27,21 @@ MainWindow::MainWindow(QWidget *parent)
         ui->stackedWidget->setCurrentWidget(ui->SettingsPage_1);
     });
 
+    connect(ui->BolusButton, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->BolusPage);
+    });
+    connect(ui->backToHome, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->HomePage);
+    });
+
+    connect(ui->BTN0, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->BolusPage);
+    });
+
+    connect(ui->enterCarbsBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->enterCarbsPage);
+    });
+
     configData = new ConfigData(ui->stackedWidget->findChild<QWidget*>("SettingsPage_1"), ui->stackedWidget->findChild<QWidget*>("SettingsPage_2"));
 
     isOn = false;
@@ -122,3 +137,10 @@ void MainWindow::batteryDrain() {
         }, Qt::QueuedConnection);
     }
 }
+
+
+void MainWindow::on_dateTimeEditor_dateTimeChanged(const QDateTime &dateTime){
+    configData->setCurDateTime(dateTime);
+    ui->dateTimeEdit->setDateTime(configData->getCurDateTime());
+}
+

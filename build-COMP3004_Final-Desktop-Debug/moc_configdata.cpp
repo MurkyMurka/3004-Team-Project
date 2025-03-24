@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ConfigData_t {
-    QByteArrayData data[9];
-    char stringdata0[77];
+    QByteArrayData data[8];
+    char stringdata0[87];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,16 +35,16 @@ static const qt_meta_stringdata_ConfigData_t qt_meta_stringdata_ConfigData = {
 QT_MOC_LITERAL(0, 0, 10), // "ConfigData"
 QT_MOC_LITERAL(1, 11, 14), // "setCurDateTime"
 QT_MOC_LITERAL(2, 26, 0), // ""
-QT_MOC_LITERAL(3, 27, 4), // "date"
-QT_MOC_LITERAL(4, 32, 4), // "time"
-QT_MOC_LITERAL(5, 37, 6), // "setPIN"
-QT_MOC_LITERAL(6, 44, 9), // "deletePIN"
-QT_MOC_LITERAL(7, 54, 14), // "bluetoothCheck"
-QT_MOC_LITERAL(8, 69, 7) // "checked"
+QT_MOC_LITERAL(3, 27, 19), // "datePlusTimeSetting"
+QT_MOC_LITERAL(4, 47, 6), // "setPIN"
+QT_MOC_LITERAL(5, 54, 9), // "deletePIN"
+QT_MOC_LITERAL(6, 64, 14), // "bluetoothCheck"
+QT_MOC_LITERAL(7, 79, 7) // "checked"
 
     },
-    "ConfigData\0setCurDateTime\0\0date\0time\0"
-    "setPIN\0deletePIN\0bluetoothCheck\0checked"
+    "ConfigData\0setCurDateTime\0\0"
+    "datePlusTimeSetting\0setPIN\0deletePIN\0"
+    "bluetoothCheck\0checked"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,16 +62,16 @@ static const uint qt_meta_data_ConfigData[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    2,   34,    2, 0x0a /* Public */,
-       5,    0,   39,    2, 0x0a /* Public */,
-       6,    0,   40,    2, 0x0a /* Public */,
-       7,    1,   41,    2, 0x0a /* Public */,
+       1,    1,   34,    2, 0x0a /* Public */,
+       4,    0,   37,    2, 0x0a /* Public */,
+       5,    0,   38,    2, 0x0a /* Public */,
+       6,    1,   39,    2, 0x0a /* Public */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QDate, QMetaType::QTime,    3,    4,
+    QMetaType::Void, QMetaType::QDateTime,    3,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Bool,    8,
+    QMetaType::Void, QMetaType::Bool,    7,
 
        0        // eod
 };
@@ -82,7 +82,7 @@ void ConfigData::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         auto *_t = static_cast<ConfigData *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->setCurDateTime((*reinterpret_cast< QDate(*)>(_a[1])),(*reinterpret_cast< QTime(*)>(_a[2]))); break;
+        case 0: _t->setCurDateTime((*reinterpret_cast< const QDateTime(*)>(_a[1]))); break;
         case 1: _t->setPIN(); break;
         case 2: _t->deletePIN(); break;
         case 3: _t->bluetoothCheck((*reinterpret_cast< bool(*)>(_a[1]))); break;

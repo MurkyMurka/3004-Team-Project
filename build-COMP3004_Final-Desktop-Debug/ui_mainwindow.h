@@ -13,6 +13,7 @@
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QDateTimeEdit>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QLabel>
@@ -36,10 +37,15 @@ public:
     QWidget *HomePage;
     QLabel *BolusIcon;
     QProgressBar *BolusBar;
-    QLabel *BolusNum;
     QPushButton *OptionsButton;
     QPushButton *BolusButton;
-    QGraphicsView *graphicsView;
+    QProgressBar *BatteryBar;
+    QDateTimeEdit *dateTimeEdit;
+    QTextEdit *textEdit;
+    QTextEdit *textEdit_2;
+    QTextEdit *textEdit_3;
+    QTextEdit *textEdit_4;
+    QTextEdit *textEdit_5;
     QWidget *OffPage;
     QTextBrowser *textBrowser;
     QFrame *PINFrame;
@@ -61,17 +67,46 @@ public:
     QLabel *label_2;
     QLabel *ErrorNewPIN;
     QPushButton *DownButton;
+    QDateTimeEdit *dateTimeEditor;
     QWidget *SettingsPage_2;
     QGraphicsView *BluetoothView;
     QPushButton *UpButton;
     QLabel *label_5;
     QCheckBox *BluetoothCheckBox;
     QLabel *BTMess;
+    QWidget *timePage;
+    QWidget *timeEditPage;
+    QWidget *BolusPage;
+    QPushButton *backToHome;
+    QTextEdit *textEdit_6;
+    QLabel *label_4;
+    QPushButton *pushButton;
+    QLabel *label_6;
+    QLabel *label_7;
+    QPushButton *viewCalcBTN;
+    QPushButton *enterCarbsBTN;
+    QPushButton *addBgBTN;
+    QLabel *label_8;
+    QWidget *enterCarbsPage;
+    QTextEdit *textEdit_7;
+    QPushButton *BTN0;
+    QPushButton *pushButton_5;
+    QLabel *label_9;
+    QPushButton *BTN1;
+    QPushButton *BTN3;
+    QPushButton *BTN2;
+    QPushButton *BTN6;
+    QPushButton *BTN5;
+    QPushButton *BTN4;
+    QPushButton *BTN9;
+    QPushButton *BTN8;
+    QPushButton *BTN7;
+    QPushButton *backBTN;
+    QPushButton *pushButton_16;
     QPushButton *OnButton;
     QPushButton *OffButton;
     QPushButton *ChargeButton;
     QPushButton *UnplugButton;
-    QProgressBar *BatteryBar;
     QPushButton *TandemLogo;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -80,33 +115,53 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(803, 545);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
-        stackedWidget->setGeometry(QRect(0, 50, 571, 521));
+        stackedWidget->setGeometry(QRect(0, 0, 571, 521));
         HomePage = new QWidget();
         HomePage->setObjectName(QString::fromUtf8("HomePage"));
         BolusIcon = new QLabel(HomePage);
         BolusIcon->setObjectName(QString::fromUtf8("BolusIcon"));
-        BolusIcon->setGeometry(QRect(10, 20, 16, 17));
+        BolusIcon->setGeometry(QRect(410, 20, 20, 30));
         BolusBar = new QProgressBar(HomePage);
         BolusBar->setObjectName(QString::fromUtf8("BolusBar"));
-        BolusBar->setGeometry(QRect(30, 10, 141, 31));
+        BolusBar->setGeometry(QRect(420, 20, 141, 31));
         BolusBar->setValue(24);
-        BolusNum = new QLabel(HomePage);
-        BolusNum->setObjectName(QString::fromUtf8("BolusNum"));
-        BolusNum->setGeometry(QRect(70, 50, 71, 21));
         OptionsButton = new QPushButton(HomePage);
         OptionsButton->setObjectName(QString::fromUtf8("OptionsButton"));
-        OptionsButton->setGeometry(QRect(10, 390, 271, 101));
+        OptionsButton->setGeometry(QRect(10, 250, 551, 101));
         BolusButton = new QPushButton(HomePage);
         BolusButton->setObjectName(QString::fromUtf8("BolusButton"));
-        BolusButton->setGeometry(QRect(300, 390, 271, 101));
-        graphicsView = new QGraphicsView(HomePage);
-        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(10, 80, 431, 291));
+        BolusButton->setGeometry(QRect(10, 100, 551, 101));
+        BatteryBar = new QProgressBar(HomePage);
+        BatteryBar->setObjectName(QString::fromUtf8("BatteryBar"));
+        BatteryBar->setGeometry(QRect(10, 20, 151, 30));
+        BatteryBar->setValue(24);
+        dateTimeEdit = new QDateTimeEdit(HomePage);
+        dateTimeEdit->setObjectName(QString::fromUtf8("dateTimeEdit"));
+        dateTimeEdit->setGeometry(QRect(230, 20, 131, 31));
+        dateTimeEdit->setReadOnly(true);
+        textEdit = new QTextEdit(HomePage);
+        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setGeometry(QRect(30, 390, 371, 51));
+        textEdit->setReadOnly(true);
+        textEdit_2 = new QTextEdit(HomePage);
+        textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
+        textEdit_2->setGeometry(QRect(30, 450, 141, 30));
+        textEdit_2->setReadOnly(true);
+        textEdit_3 = new QTextEdit(HomePage);
+        textEdit_3->setObjectName(QString::fromUtf8("textEdit_3"));
+        textEdit_3->setGeometry(QRect(180, 450, 41, 30));
+        textEdit_4 = new QTextEdit(HomePage);
+        textEdit_4->setObjectName(QString::fromUtf8("textEdit_4"));
+        textEdit_4->setGeometry(QRect(240, 450, 181, 30));
+        textEdit_4->setReadOnly(true);
+        textEdit_5 = new QTextEdit(HomePage);
+        textEdit_5->setObjectName(QString::fromUtf8("textEdit_5"));
+        textEdit_5->setGeometry(QRect(440, 450, 121, 30));
         stackedWidget->addWidget(HomePage);
         OffPage = new QWidget();
         OffPage->setObjectName(QString::fromUtf8("OffPage"));
@@ -180,6 +235,9 @@ public:
             icon.addFile(QString::fromUtf8("."), QSize(), QIcon::Normal, QIcon::Off);
         }
         DownButton->setIcon(icon);
+        dateTimeEditor = new QDateTimeEdit(SettingsPage_1);
+        dateTimeEditor->setObjectName(QString::fromUtf8("dateTimeEditor"));
+        dateTimeEditor->setGeometry(QRect(150, 90, 221, 81));
         stackedWidget->addWidget(SettingsPage_1);
         SettingsPage_2 = new QWidget();
         SettingsPage_2->setObjectName(QString::fromUtf8("SettingsPage_2"));
@@ -201,29 +259,113 @@ public:
         BTMess->setObjectName(QString::fromUtf8("BTMess"));
         BTMess->setGeometry(QRect(140, 150, 211, 17));
         stackedWidget->addWidget(SettingsPage_2);
+        timePage = new QWidget();
+        timePage->setObjectName(QString::fromUtf8("timePage"));
+        stackedWidget->addWidget(timePage);
+        timeEditPage = new QWidget();
+        timeEditPage->setObjectName(QString::fromUtf8("timeEditPage"));
+        stackedWidget->addWidget(timeEditPage);
+        BolusPage = new QWidget();
+        BolusPage->setObjectName(QString::fromUtf8("BolusPage"));
+        backToHome = new QPushButton(BolusPage);
+        backToHome->setObjectName(QString::fromUtf8("backToHome"));
+        backToHome->setGeometry(QRect(10, 10, 81, 41));
+        textEdit_6 = new QTextEdit(BolusPage);
+        textEdit_6->setObjectName(QString::fromUtf8("textEdit_6"));
+        textEdit_6->setGeometry(QRect(120, 10, 331, 41));
+        label_4 = new QLabel(BolusPage);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(270, 60, 41, 17));
+        pushButton = new QPushButton(BolusPage);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(480, 10, 81, 41));
+        label_6 = new QLabel(BolusPage);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setGeometry(QRect(20, 140, 91, 31));
+        label_7 = new QLabel(BolusPage);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setGeometry(QRect(300, 140, 91, 31));
+        viewCalcBTN = new QPushButton(BolusPage);
+        viewCalcBTN->setObjectName(QString::fromUtf8("viewCalcBTN"));
+        viewCalcBTN->setGeometry(QRect(10, 370, 551, 71));
+        enterCarbsBTN = new QPushButton(BolusPage);
+        enterCarbsBTN->setObjectName(QString::fromUtf8("enterCarbsBTN"));
+        enterCarbsBTN->setGeometry(QRect(10, 170, 271, 141));
+        addBgBTN = new QPushButton(BolusPage);
+        addBgBTN->setObjectName(QString::fromUtf8("addBgBTN"));
+        addBgBTN->setGeometry(QRect(290, 170, 271, 141));
+        label_8 = new QLabel(BolusPage);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setGeometry(QRect(130, 250, 51, 21));
+        stackedWidget->addWidget(BolusPage);
+        enterCarbsPage = new QWidget();
+        enterCarbsPage->setObjectName(QString::fromUtf8("enterCarbsPage"));
+        textEdit_7 = new QTextEdit(enterCarbsPage);
+        textEdit_7->setObjectName(QString::fromUtf8("textEdit_7"));
+        textEdit_7->setGeometry(QRect(120, 10, 331, 41));
+        textEdit_7->setReadOnly(true);
+        BTN0 = new QPushButton(enterCarbsPage);
+        BTN0->setObjectName(QString::fromUtf8("BTN0"));
+        BTN0->setGeometry(QRect(10, 10, 81, 41));
+        pushButton_5 = new QPushButton(enterCarbsPage);
+        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
+        pushButton_5->setGeometry(QRect(480, 10, 81, 41));
+        label_9 = new QLabel(enterCarbsPage);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        label_9->setGeometry(QRect(270, 60, 41, 17));
+        BTN1 = new QPushButton(enterCarbsPage);
+        BTN1->setObjectName(QString::fromUtf8("BTN1"));
+        BTN1->setGeometry(QRect(10, 120, 181, 71));
+        BTN3 = new QPushButton(enterCarbsPage);
+        BTN3->setObjectName(QString::fromUtf8("BTN3"));
+        BTN3->setGeometry(QRect(390, 120, 181, 71));
+        BTN2 = new QPushButton(enterCarbsPage);
+        BTN2->setObjectName(QString::fromUtf8("BTN2"));
+        BTN2->setGeometry(QRect(200, 120, 181, 71));
+        BTN6 = new QPushButton(enterCarbsPage);
+        BTN6->setObjectName(QString::fromUtf8("BTN6"));
+        BTN6->setGeometry(QRect(390, 200, 181, 71));
+        BTN5 = new QPushButton(enterCarbsPage);
+        BTN5->setObjectName(QString::fromUtf8("BTN5"));
+        BTN5->setGeometry(QRect(200, 200, 181, 71));
+        BTN4 = new QPushButton(enterCarbsPage);
+        BTN4->setObjectName(QString::fromUtf8("BTN4"));
+        BTN4->setGeometry(QRect(10, 200, 181, 71));
+        BTN9 = new QPushButton(enterCarbsPage);
+        BTN9->setObjectName(QString::fromUtf8("BTN9"));
+        BTN9->setGeometry(QRect(390, 280, 181, 71));
+        BTN8 = new QPushButton(enterCarbsPage);
+        BTN8->setObjectName(QString::fromUtf8("BTN8"));
+        BTN8->setGeometry(QRect(200, 280, 181, 71));
+        BTN7 = new QPushButton(enterCarbsPage);
+        BTN7->setObjectName(QString::fromUtf8("BTN7"));
+        BTN7->setGeometry(QRect(10, 280, 181, 71));
+        backBTN = new QPushButton(enterCarbsPage);
+        backBTN->setObjectName(QString::fromUtf8("backBTN"));
+        backBTN->setGeometry(QRect(390, 360, 181, 71));
+        pushButton_16 = new QPushButton(enterCarbsPage);
+        pushButton_16->setObjectName(QString::fromUtf8("pushButton_16"));
+        pushButton_16->setGeometry(QRect(200, 360, 181, 71));
+        stackedWidget->addWidget(enterCarbsPage);
         OnButton = new QPushButton(centralwidget);
         OnButton->setObjectName(QString::fromUtf8("OnButton"));
-        OnButton->setGeometry(QRect(710, 110, 83, 25));
+        OnButton->setGeometry(QRect(710, 70, 83, 25));
         OffButton = new QPushButton(centralwidget);
         OffButton->setObjectName(QString::fromUtf8("OffButton"));
-        OffButton->setGeometry(QRect(710, 160, 83, 25));
+        OffButton->setGeometry(QRect(710, 120, 83, 25));
         ChargeButton = new QPushButton(centralwidget);
         ChargeButton->setObjectName(QString::fromUtf8("ChargeButton"));
-        ChargeButton->setGeometry(QRect(710, 390, 83, 25));
+        ChargeButton->setGeometry(QRect(710, 350, 83, 25));
         UnplugButton = new QPushButton(centralwidget);
         UnplugButton->setObjectName(QString::fromUtf8("UnplugButton"));
-        UnplugButton->setGeometry(QRect(710, 430, 83, 25));
-        BatteryBar = new QProgressBar(centralwidget);
-        BatteryBar->setObjectName(QString::fromUtf8("BatteryBar"));
-        BatteryBar->setGeometry(QRect(10, 10, 151, 31));
-        BatteryBar->setValue(24);
+        UnplugButton->setGeometry(QRect(710, 390, 83, 25));
         TandemLogo = new QPushButton(centralwidget);
         TandemLogo->setObjectName(QString::fromUtf8("TandemLogo"));
-        TandemLogo->setGeometry(QRect(590, 60, 111, 481));
+        TandemLogo->setGeometry(QRect(590, 10, 111, 481));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 22));
+        menubar->setGeometry(QRect(0, 0, 803, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -231,7 +373,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -241,9 +383,33 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         BolusIcon->setText(QCoreApplication::translate("MainWindow", "B", nullptr));
-        BolusNum->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         OptionsButton->setText(QCoreApplication::translate("MainWindow", "OPTIONS", nullptr));
         BolusButton->setText(QCoreApplication::translate("MainWindow", "BOLUS", nullptr));
+        textEdit->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt;\">INSULIN ON BOARD (IOB)</span></p></body></html>", nullptr));
+        textEdit_2->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Units</p></body></html>", nullptr));
+        textEdit_3->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        textEdit_4->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Time Remaining</p></body></html>", nullptr));
+        textEdit_5->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
         textBrowser->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -270,6 +436,39 @@ public:
         label_5->setText(QCoreApplication::translate("MainWindow", "Bluetooth", nullptr));
         BluetoothCheckBox->setText(QCoreApplication::translate("MainWindow", "Bluetooth", nullptr));
         BTMess->setText(QString());
+        backToHome->setText(QCoreApplication::translate("MainWindow", "<--", nullptr));
+        textEdit_6->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0</p></body></html>", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "units", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "\342\234\223", nullptr));
+        label_6->setText(QCoreApplication::translate("MainWindow", "CARBS", nullptr));
+        label_7->setText(QCoreApplication::translate("MainWindow", "GLUCOSE", nullptr));
+        viewCalcBTN->setText(QCoreApplication::translate("MainWindow", "View Calculation", nullptr));
+        enterCarbsBTN->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
+        addBgBTN->setText(QCoreApplication::translate("MainWindow", "Add BG", nullptr));
+        label_8->setText(QCoreApplication::translate("MainWindow", "grams", nullptr));
+        textEdit_7->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Enter Carbs</p></body></html>", nullptr));
+        BTN0->setText(QCoreApplication::translate("MainWindow", "<--", nullptr));
+        pushButton_5->setText(QCoreApplication::translate("MainWindow", "\342\234\223", nullptr));
+        label_9->setText(QCoreApplication::translate("MainWindow", "grams", nullptr));
+        BTN1->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
+        BTN3->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
+        BTN2->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
+        BTN6->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
+        BTN5->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
+        BTN4->setText(QCoreApplication::translate("MainWindow", "4", nullptr));
+        BTN9->setText(QCoreApplication::translate("MainWindow", "9", nullptr));
+        BTN8->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
+        BTN7->setText(QCoreApplication::translate("MainWindow", "7", nullptr));
+        backBTN->setText(QCoreApplication::translate("MainWindow", "Back BTN", nullptr));
+        pushButton_16->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         OnButton->setText(QCoreApplication::translate("MainWindow", "ON", nullptr));
         OffButton->setText(QCoreApplication::translate("MainWindow", "OFF", nullptr));
         ChargeButton->setText(QCoreApplication::translate("MainWindow", "Charge", nullptr));
