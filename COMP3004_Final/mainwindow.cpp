@@ -8,21 +8,31 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     connect(ui->OnButton, SIGNAL(clicked()), this, SLOT(turnOn()));
+
     connect(ui->OffButton, SIGNAL(clicked()), this, SLOT(turnOff()));
+
     connect(ui->TandemLogo, SIGNAL(clicked()), this, SLOT(returnHomePage()));
+
+    ui->profileTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
     connect(ui->ChargeButton, &QPushButton::clicked, this, [this]() {
         QtConcurrent::run(this, &MainWindow::chargeDevice);
     });
+
     connect(ui->UnplugButton, SIGNAL(clicked()), this, SLOT(unplugCharger()));
+
     connect(ui->OptionsButton, &QPushButton::clicked, this, [this]() {
         ui->stackedWidget->setCurrentWidget(ui->OptionsPage);
     });
+
     connect(ui->SettingsButton, &QPushButton::clicked, this, [this]() {
         ui->stackedWidget->setCurrentWidget(ui->SettingsPage_1);
     });
+
     connect(ui->DownButton, &QPushButton::clicked, this, [this]() {
         ui->stackedWidget->setCurrentWidget(ui->SettingsPage_2);
     });
+
     connect(ui->UpButton, &QPushButton::clicked, this, [this]() {
         ui->stackedWidget->setCurrentWidget(ui->SettingsPage_1);
     });
@@ -30,6 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->BolusButton, &QPushButton::clicked, this, [this]() {
         ui->stackedWidget->setCurrentWidget(ui->BolusPage);
     });
+
     connect(ui->backToHome, &QPushButton::clicked, this, [this]() {
         ui->stackedWidget->setCurrentWidget(ui->HomePage);
     });
@@ -41,6 +52,40 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->enterCarbsBTN, &QPushButton::clicked, this, [this]() {
         ui->stackedWidget->setCurrentWidget(ui->enterCarbsPage);
     });
+
+    connect(ui->backToHome_2, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->HomePage);
+    });
+
+    connect(ui->backToHome_3, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->OptionsPage);
+    });
+
+    connect(ui->backToOptionsBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->OptionsPage);
+    });
+
+    connect(ui->myPumpBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->myPumpPage);
+    });
+
+    connect(ui->backToMyPumpBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->myPumpPage);
+    });
+
+    connect(ui->personalProfilesBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->personalProfilesPage);
+    });
+
+    connect(ui->createProfilePageBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->profileNameCreatePage);
+    });
+
+    connect(ui->createProfileBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->personalProfilesPage);
+    });
+
+
 
     clock = new QTimer(this);
     connect(clock, &QTimer::timeout, this, &MainWindow::setMainClock);
@@ -132,7 +177,9 @@ void MainWindow::batteryDrain() {
     while(isOn) {
         QThread::sleep(3);
         battery--;
-        
+        if(battery < 10){
+            ui->stackedWidget->setCurrentWidget(ui->lowChargeWarningPage);
+        }
         QMetaObject::invokeMethod(this, [this]() {
             ui->BatteryBar->setValue(battery);
             if (battery <= 0) {
