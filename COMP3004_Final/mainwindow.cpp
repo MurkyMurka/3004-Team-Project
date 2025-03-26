@@ -42,6 +42,10 @@ MainWindow::MainWindow(QWidget *parent)
         ui->stackedWidget->setCurrentWidget(ui->enterCarbsPage);
     });
 
+    clock = new QTimer(this);
+    connect(clock, &QTimer::timeout, this, &MainWindow::setMainClock);
+    clock->start(1000);
+
     configData = new ConfigData(ui->stackedWidget->findChild<QWidget*>("SettingsPage_1"), ui->stackedWidget->findChild<QWidget*>("SettingsPage_2"));
 
     isOn = false;
@@ -139,8 +143,17 @@ void MainWindow::batteryDrain() {
 }
 
 
+void MainWindow::setMainClock(){
+    QDateTime dateTime = configData->getCurDateTime();
+    dateTime = dateTime.addSecs(1);
+    configData->setCurDateTime(dateTime);
+    ui->dateTimeEdit->setDateTime(dateTime);
+    ui->dateTimeEditor->setDateTime(dateTime);
+}
+
+
 void MainWindow::on_dateTimeEditor_dateTimeChanged(const QDateTime &dateTime){
     configData->setCurDateTime(dateTime);
-    ui->dateTimeEdit->setDateTime(configData->getCurDateTime());
+    ui->dateTimeEdit->setDateTime(dateTime);
 }
 

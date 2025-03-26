@@ -43,9 +43,9 @@ public:
     QDateTimeEdit *dateTimeEdit;
     QTextEdit *textEdit;
     QTextEdit *textEdit_2;
-    QTextEdit *textEdit_3;
+    QTextEdit *inuslinUnits;
     QTextEdit *textEdit_4;
-    QTextEdit *textEdit_5;
+    QTextEdit *timeRemaining;
     QWidget *OffPage;
     QTextBrowser *textBrowser;
     QFrame *PINFrame;
@@ -142,7 +142,7 @@ public:
         BatteryBar->setValue(24);
         dateTimeEdit = new QDateTimeEdit(HomePage);
         dateTimeEdit->setObjectName(QString::fromUtf8("dateTimeEdit"));
-        dateTimeEdit->setGeometry(QRect(230, 20, 131, 31));
+        dateTimeEdit->setGeometry(QRect(220, 20, 131, 31));
         dateTimeEdit->setReadOnly(true);
         textEdit = new QTextEdit(HomePage);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
@@ -152,16 +152,16 @@ public:
         textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
         textEdit_2->setGeometry(QRect(30, 450, 141, 30));
         textEdit_2->setReadOnly(true);
-        textEdit_3 = new QTextEdit(HomePage);
-        textEdit_3->setObjectName(QString::fromUtf8("textEdit_3"));
-        textEdit_3->setGeometry(QRect(180, 450, 41, 30));
+        inuslinUnits = new QTextEdit(HomePage);
+        inuslinUnits->setObjectName(QString::fromUtf8("inuslinUnits"));
+        inuslinUnits->setGeometry(QRect(180, 450, 41, 30));
         textEdit_4 = new QTextEdit(HomePage);
         textEdit_4->setObjectName(QString::fromUtf8("textEdit_4"));
         textEdit_4->setGeometry(QRect(240, 450, 181, 30));
         textEdit_4->setReadOnly(true);
-        textEdit_5 = new QTextEdit(HomePage);
-        textEdit_5->setObjectName(QString::fromUtf8("textEdit_5"));
-        textEdit_5->setGeometry(QRect(440, 450, 121, 30));
+        timeRemaining = new QTextEdit(HomePage);
+        timeRemaining->setObjectName(QString::fromUtf8("timeRemaining"));
+        timeRemaining->setGeometry(QRect(440, 450, 121, 30));
         stackedWidget->addWidget(HomePage);
         OffPage = new QWidget();
         OffPage->setObjectName(QString::fromUtf8("OffPage"));
@@ -373,7 +373,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -383,6 +383,10 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         BolusIcon->setText(QCoreApplication::translate("MainWindow", "B", nullptr));
+#if QT_CONFIG(statustip)
+        BolusBar->setStatusTip(QCoreApplication::translate("MainWindow", "%p%", nullptr));
+#endif // QT_CONFIG(statustip)
+        BolusBar->setFormat(QString());
         OptionsButton->setText(QCoreApplication::translate("MainWindow", "OPTIONS", nullptr));
         BolusButton->setText(QCoreApplication::translate("MainWindow", "BOLUS", nullptr));
         textEdit->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -395,7 +399,7 @@ public:
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Units</p></body></html>", nullptr));
-        textEdit_3->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        inuslinUnits->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
@@ -405,7 +409,7 @@ public:
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Time Remaining</p></body></html>", nullptr));
-        textEdit_5->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        timeRemaining->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"

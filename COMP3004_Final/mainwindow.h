@@ -5,6 +5,7 @@
 #include <QtConcurrent/QtConcurrent>
 #include <QThread>
 #include <QWidget>
+#include <QString>
 
 #include "configdata.h"
 
@@ -31,6 +32,8 @@ public slots:
 
 private slots:
 
+    void setMainClock();
+
     void on_dateTimeEditor_dateTimeChanged(const QDateTime &dateTime);
 
 private:
@@ -40,6 +43,7 @@ private:
     int battery;
     ConfigData *configData;
     bool existPIN;
+    QTimer *clock;
 
     void batteryDrain();
     bool checkingPIN();

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QDateTimeEdit>
+#include <QDateTime>
 #include <QWidget>
 #include <QPushButton>
 #include <QTextBrowser>
