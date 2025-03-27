@@ -81,10 +81,6 @@ MainWindow::MainWindow(QWidget *parent)
         ui->stackedWidget->setCurrentWidget(ui->profileNameCreatePage);
     });
 
-    connect(ui->createProfileBTN, &QPushButton::clicked, this, [this]() {
-        ui->stackedWidget->setCurrentWidget(ui->personalProfilesPage);
-    });
-
     connect(ui->addCarbsBTN, &QPushButton::clicked, this, [this]() {
         ui->stackedWidget->setCurrentWidget(ui->BolusPage);
     });
@@ -231,7 +227,36 @@ void MainWindow::on_dateTimeEditor_dateTimeChanged(const QDateTime &dateTime){
 
 
 void MainWindow::on_createProfileBTN_clicked(){
-
+    if(profNum == 6){
+        ui->nameErrorLabel->setText("Max Profiles Made");\
+        return;
+    }
+    if(ui->profileNameLineEdit->text().isEmpty()){
+        ui->nameErrorLabel->setText("Please enter characters!!");
+        return;
+    }else{
+        ui->profileTable->insertRow(profNum);
+        for(int i = 0; i < 3; i++){
+            if(i == 0){
+                QString nameText = ui->profileNameLineEdit->text();
+                QTableWidgetItem *name = new QTableWidgetItem(nameText);
+                ui->profileTable->setItem(profNum, i, name);
+            }
+            if(i == 1){
+                QPushButton *button1 = new QPushButton(ui->profileTable);
+                button1->setText("Select");
+                ui->profileTable->setCellWidget(profNum, i, button1);
+            }
+            if(i == 2){
+                QPushButton *button2 = new QPushButton(ui->profileTable);
+                button2->setText("Edit");
+                ui->profileTable->setCellWidget(profNum, i, button2);
+            }
+        }
+    }
+    profNum++;
+    ui->stackedWidget->setCurrentWidget(ui->personalProfilesPage);
+    ui->nameErrorLabel->setText("");
 }
 
 
@@ -271,7 +296,6 @@ void MainWindow::on_confirmBolBTN_rejected(){
 
 
 void MainWindow::on_confirmBolBTN_accepted(){
-    if()
 
     ui->stackedWidget->setCurrentWidget(ui->HomePage);
     ui->carbGramsSpinBox->setValue(0);

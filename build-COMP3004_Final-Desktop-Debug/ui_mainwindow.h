@@ -161,6 +161,7 @@ public:
     QLineEdit *profileNameLineEdit;
     QLabel *label_13;
     QPushButton *createProfileBTN;
+    QLabel *nameErrorLabel;
     QPushButton *OnButton;
     QPushButton *OffButton;
     QPushButton *ChargeButton;
@@ -587,7 +588,7 @@ public:
         __qtablewidgetitem2->setFont(font3);
         profileTable->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         profileTable->setObjectName(QString::fromUtf8("profileTable"));
-        profileTable->setGeometry(QRect(100, 140, 391, 271));
+        profileTable->setGeometry(QRect(100, 140, 401, 211));
         stackedWidget->addWidget(personalProfilesPage);
         profileNameCreatePage = new QWidget();
         profileNameCreatePage->setObjectName(QString::fromUtf8("profileNameCreatePage"));
@@ -600,6 +601,14 @@ public:
         createProfileBTN = new QPushButton(profileNameCreatePage);
         createProfileBTN->setObjectName(QString::fromUtf8("createProfileBTN"));
         createProfileBTN->setGeometry(QRect(240, 280, 83, 25));
+        nameErrorLabel = new QLabel(profileNameCreatePage);
+        nameErrorLabel->setObjectName(QString::fromUtf8("nameErrorLabel"));
+        nameErrorLabel->setGeometry(QRect(70, 70, 451, 71));
+        QFont font4;
+        font4.setFamily(QString::fromUtf8("DejaVu Sans"));
+        font4.setPointSize(26);
+        nameErrorLabel->setFont(font4);
+        nameErrorLabel->setStyleSheet(QString::fromUtf8("color: red;"));
         stackedWidget->addWidget(profileNameCreatePage);
         OnButton = new QPushButton(centralwidget);
         OnButton->setObjectName(QString::fromUtf8("OnButton"));
@@ -627,7 +636,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(9);
+        stackedWidget->setCurrentIndex(13);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -775,6 +784,7 @@ public:
         ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Edit", nullptr));
         label_13->setText(QCoreApplication::translate("MainWindow", "Enter  Profile  Name", nullptr));
         createProfileBTN->setText(QCoreApplication::translate("MainWindow", "Create", nullptr));
+        nameErrorLabel->setText(QString());
         OnButton->setText(QCoreApplication::translate("MainWindow", "ON", nullptr));
         OffButton->setText(QCoreApplication::translate("MainWindow", "OFF", nullptr));
         ChargeButton->setText(QCoreApplication::translate("MainWindow", "Charge", nullptr));

@@ -62,6 +62,7 @@ private:
     ConfigData *configData;
     bool existPIN;
     QTimer *clock;
+    int profNum = 0;
 
     void batteryDrain();
     bool checkingPIN();

@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>13</number>
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QLabel" name="BolusIcon">
@@ -1452,8 +1452,8 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>100</x>
         <y>140</y>
-        <width>391</width>
-        <height>271</height>
+        <width>401</width>
+        <height>211</height>
        </rect>
       </property>
       <column>
@@ -1537,6 +1537,28 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="text">
        <string>Create</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="nameErrorLabel">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>70</y>
+        <width>451</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <pointsize>26</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: red;</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </widget>
