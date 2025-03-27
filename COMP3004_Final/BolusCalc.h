@@ -4,7 +4,7 @@
 class BolusCalc {
 
 public:
-    BolusCalc(float = 0, float = 0, float = 0, float = 0, float = 0, float = 0, float = 0, float = 0, float = 0);
+    BolusCalc(float = 0, float = 0, float = 0, float = 0, float = 0, float = 0, float = 0, float = 0, double = 0);
     float calculateFoodBolus();
     float calculateCorrectionBolus();
     float calculateTotalBolus();
@@ -19,7 +19,7 @@ public:
     void setTargetBG(float);
     void setCurrBG(float);
     void setIob(float);
-    void setTime(float);
+    void setTime(double);
     void setImmediate(float);
 
 private:
@@ -30,7 +30,7 @@ private:
     float targetBG;
     float currBG;
     float iob;
-    float time; //definitely needs to be changed
+    double time; //can be changed TBD.
     float immediateBolus;
 
 };
