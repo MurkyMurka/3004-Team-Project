@@ -202,7 +202,7 @@ void MainWindow::batteryDrain() {
     while(isOn) {
         QThread::sleep(3);
         battery--;
-        if(battery < 10){
+        if(battery <= 15 && !isCharging){
             ui->stackedWidget->setCurrentWidget(ui->lowChargeWarningPage);
         }
         QMetaObject::invokeMethod(this, [this]() {
