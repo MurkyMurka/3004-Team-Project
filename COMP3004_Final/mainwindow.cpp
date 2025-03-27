@@ -85,6 +85,31 @@ MainWindow::MainWindow(QWidget *parent)
         ui->stackedWidget->setCurrentWidget(ui->personalProfilesPage);
     });
 
+    connect(ui->addCarbsBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->BolusPage);
+    });
+
+    connect(ui->backToBolusBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->BolusPage);
+    });
+
+    connect(ui->addBgBTN_2, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->BolusPage);
+    });
+
+    connect(ui->addBgBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->enterBgPage);
+    });
+
+    connect(ui->confirmBolusBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->confirmBolusPage);
+    });
+
+    connect(ui->backToDeliverBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->deliverBolusPage);
+    });
+
+
 
 
     clock = new QTimer(this);
@@ -202,5 +227,63 @@ void MainWindow::setMainClock(){
 void MainWindow::on_dateTimeEditor_dateTimeChanged(const QDateTime &dateTime){
     configData->setCurDateTime(dateTime);
     ui->dateTimeEdit->setDateTime(dateTime);
+}
+
+
+void MainWindow::on_createProfileBTN_clicked(){
+
+}
+
+
+void MainWindow::on_addCarbsBTN_clicked(){
+    QString carbs = QString::number(ui->carbGramsSpinBox->value());
+    ui->enterCarbsBTN->setText(carbs);
+}
+
+
+void MainWindow::on_addBgBTN_2_clicked(){
+    QString carbs = QString::number(ui->bgSpinBox->value());
+    ui->addBgBTN->setText(carbs);
+}
+
+
+void MainWindow::on_confirmBolusBTN_clicked(){
+    QString carbs = QString::number(ui->carbGramsSpinBox->value());
+    QString bg = QString::number(ui->bgSpinBox->value());
+    ui->conCarb->setText(carbs);
+    ui->conBG->setText(bg);
+    ui->conUnits->setText(ui->finalBolusUnits->toPlainText());
+}
+
+
+void MainWindow::on_buttonBox_rejected(){
+    ui->stackedWidget->setCurrentWidget(ui->BolusPage);
+}
+
+void MainWindow::on_buttonBox_accepted(){
+    ui->stackedWidget->setCurrentWidget(ui->deliverBolusPage);
+}
+
+
+void MainWindow::on_confirmBolBTN_rejected(){
+    ui->stackedWidget->setCurrentWidget(ui->BolusPage);
+}
+
+
+void MainWindow::on_confirmBolBTN_accepted(){
+    if()
+
+    ui->stackedWidget->setCurrentWidget(ui->HomePage);
+    ui->carbGramsSpinBox->setValue(0);
+    ui->bgSpinBox->setValue(0);
+    ui->enterCarbsBTN->setText("0");
+    ui->addBgBTN->setText("Add BG");
+}
+
+
+
+
+void MainWindow::on_radioButton_clicked(){
+
 }
 

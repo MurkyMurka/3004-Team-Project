@@ -36,6 +36,24 @@ private slots:
 
     void on_dateTimeEditor_dateTimeChanged(const QDateTime &dateTime);
 
+    void on_createProfileBTN_clicked();
+
+    void on_addCarbsBTN_clicked();
+
+    void on_addBgBTN_2_clicked();
+
+    void on_confirmBolusBTN_clicked();
+
+    void on_buttonBox_rejected();
+
+    void on_confirmBolBTN_rejected();
+
+    void on_confirmBolBTN_accepted();
+
+    void on_buttonBox_accepted();
+
+    void on_radioButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     bool isOn;
