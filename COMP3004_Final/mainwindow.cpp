@@ -271,8 +271,6 @@ void MainWindow::on_confirmBolBTN_rejected(){
 
 
 void MainWindow::on_confirmBolBTN_accepted(){
-    if()
-
     ui->stackedWidget->setCurrentWidget(ui->HomePage);
     ui->carbGramsSpinBox->setValue(0);
     ui->bgSpinBox->setValue(0);
