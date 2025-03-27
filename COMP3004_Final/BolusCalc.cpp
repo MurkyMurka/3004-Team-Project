@@ -1,6 +1,6 @@
 #include "BolusCalc.h"
 
-BolusCalc::BolusCalc(float i, float b, float c, float cor, float tar, float curr, float io, float immBol, float t) {
+BolusCalc::BolusCalc(float i, float b, float c, float cor, float tar, float curr, float io, float immBol, double t) {
     icr = i;
     basal = b;
     carb = c;
@@ -68,7 +68,7 @@ void BolusCalc::setIob(float newNum) {
     iob = newNum;
 }
 
-void BolusCalc::setTime(float newNum) {
+void BolusCalc::setTime(double newNum) {
     time = newNum;
 }
 
