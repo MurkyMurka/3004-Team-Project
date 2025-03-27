@@ -5,6 +5,7 @@
 #include <QtConcurrent/QtConcurrent>
 #include <QThread>
 #include <QWidget>
+#include <QString>
 
 #include "configdata.h"
 
@@ -29,6 +30,30 @@ public slots:
     void chargeDevice();
     void unplugCharger();
 
+private slots:
+
+    void setMainClock();
+
+    void on_dateTimeEditor_dateTimeChanged(const QDateTime &dateTime);
+
+    void on_createProfileBTN_clicked();
+
+    void on_addCarbsBTN_clicked();
+
+    void on_addBgBTN_2_clicked();
+
+    void on_confirmBolusBTN_clicked();
+
+    void on_buttonBox_rejected();
+
+    void on_confirmBolBTN_rejected();
+
+    void on_confirmBolBTN_accepted();
+
+    void on_buttonBox_accepted();
+
+    void on_radioButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     bool isOn;
@@ -36,8 +61,10 @@ private:
     int battery;
     ConfigData *configData;
     bool existPIN;
+    QTimer *clock;
 
     void batteryDrain();
     bool checkingPIN();
+    void changeDateTime(const QDateTime &datePlusTime2);
 };
 #endif // MAINWINDOW_H

@@ -16,9 +16,14 @@ ConfigData::ConfigData(QWidget *_settingsPage1, QWidget *_settingsPage2) : setti
     connect(bluetoothCheckBox, &QCheckBox::toggled, this, &ConfigData::bluetoothCheck);
 }
 
-void ConfigData::setCurDateTime(QDate newDate, QTime newTime) {
-    curDateTime.setDate(newDate);
-    curDateTime.setTime(newTime);
+void ConfigData::setCurDateTime(const QDateTime &datePlusTimeSetting) {
+    if(curDateTime != datePlusTimeSetting){
+        curDateTime = datePlusTimeSetting;
+    }
+}
+
+QDateTime ConfigData::getCurDateTime() const{
+    return curDateTime;
 }
 
 void ConfigData::setPIN() {
