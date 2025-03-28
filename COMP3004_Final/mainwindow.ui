@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>19</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QLabel" name="BolusIcon">
@@ -345,7 +345,7 @@ p, li { white-space: pre-wrap; }
        <string>START INSULIN</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="myPumpBTN_2">
+     <widget class="QPushButton" name="loadInsulinCartBTN">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -356,6 +356,246 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="text">
        <string>Load Insulin Cartirage</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="loadPage">
+     <widget class="QPushButton" name="backToOptionsBTN_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;--</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_34">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>20</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Load</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="changeCartBTN">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>551</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Change Cartridge</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="stopDeliverPage">
+     <widget class="QLabel" name="label_35">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>100</y>
+        <width>451</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>In order to change a cartridge, all insulin deliveries will be stopped.</string>
+      </property>
+     </widget>
+     <widget class="QDialogButtonBox" name="cartStopConfirmBTN">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>260</y>
+        <width>166</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="standardButtons">
+       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_36">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>180</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Continue?</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="disconnectPage">
+     <widget class="QLabel" name="label_37">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>100</y>
+        <width>391</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Make sure the infusion set is disconnected from your body.</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_38">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>180</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Are you ready to continue?</string>
+      </property>
+     </widget>
+     <widget class="QDialogButtonBox" name="cartStopConfirmBTN_2">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>260</y>
+        <width>166</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="standardButtons">
+       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="insulinCartSizePage">
+     <widget class="QLabel" name="label_39">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>140</y>
+        <width>151</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Insulin Cartridge Size:</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="insulinCartAmmountSpinBox">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>150</y>
+        <width>71</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>95</number>
+      </property>
+      <property name="maximum">
+       <number>300</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="continueCartBTN">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>240</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Continue</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_40">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>160</y>
+        <width>21</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>u</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="fillTubingPage">
+     <widget class="QLabel" name="label_41">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>100</y>
+        <width>421</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Make sure the set is disconnected from your body and securely</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_42">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>120</y>
+        <width>241</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>connect the tubing to your cartridge.</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_43">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>230</y>
+        <width>361</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>On the next screen, you will fill your tubing with insulin.</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="fillTubingBTN_2">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>300</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Fill Tubing</string>
       </property>
      </widget>
     </widget>

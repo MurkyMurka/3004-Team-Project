@@ -141,6 +141,40 @@ MainWindow::MainWindow(QWidget *parent)
         ui->stackedWidget->setCurrentWidget(ui->extendedPage);
     });
 
+    connect(ui->backToOptionsBTN_2, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->OptionsPage);
+    });
+
+    connect(ui->loadInsulinCartBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->loadPage);
+    });
+
+    connect(ui->cartStopConfirmBTN, &QDialogButtonBox::rejected, this, [=]() {
+        ui->stackedWidget->setCurrentWidget(ui->loadPage);
+    });
+
+    connect(ui->cartStopConfirmBTN_2, &QDialogButtonBox::rejected, this, [=]() {
+        ui->stackedWidget->setCurrentWidget(ui->loadPage);
+    });
+
+    connect(ui->changeCartBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->stopDeliverPage);
+    });
+
+    connect(ui->cartStopConfirmBTN, &QDialogButtonBox::accepted, this, [=]() {
+        ui->stackedWidget->setCurrentWidget(ui->disconnectPage);
+    });
+
+    connect(ui->cartStopConfirmBTN_2, &QDialogButtonBox::accepted, this, [=]() {
+        ui->stackedWidget->setCurrentWidget(ui->insulinCartSizePage);
+    });
+
+    connect(ui->continueCartBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->fillTubingPage);
+    });
+
+
+
     connect(ui->durationButtonBox, &QDialogButtonBox::accepted, this, [=]() {
         ui->stackedWidget->setCurrentWidget(ui->deliverBolusPage);
         //stores the minutes and hours as strings
