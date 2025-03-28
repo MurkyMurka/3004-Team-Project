@@ -105,7 +105,75 @@ MainWindow::MainWindow(QWidget *parent)
         ui->stackedWidget->setCurrentWidget(ui->deliverBolusPage);
     });
 
+    connect(ui->backToPersonalProfilesPageBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->personalProfilesPage);
+    });
 
+    connect(ui->backToExtendedPageBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->extendedPage);
+    });
+
+    connect(ui->editExtensionBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->extendedPage);
+    });
+
+    connect(ui->backToDeliverBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->deliverBolusPage);
+    });
+
+    connect(ui->deliverNowBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->deliverNowPercentagePage);
+    });
+
+    connect(ui->setDeliveryTimeBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->deliverConfirmPage);
+    });
+
+    connect(ui->backToExtendedPageBTN_2, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->extendedPage);
+    });
+
+    connect(ui->extendedDurationBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->timeDurationPage);
+    });
+
+    connect(ui->durationButtonBox, &QDialogButtonBox::rejected, this, [=]() {
+        ui->stackedWidget->setCurrentWidget(ui->extendedPage);
+    });
+
+    connect(ui->durationButtonBox, &QDialogButtonBox::accepted, this, [=]() {
+        ui->stackedWidget->setCurrentWidget(ui->deliverBolusPage);
+        //stores the minutes and hours as strings
+        QString hours = QString::number(ui->setHourSpinbox->value());
+        QString minutes = QString::number(ui->setMinSpinbox->value());
+
+        //deciding what to set the text of the button if there are no hours or no minutes
+        if(ui->setHourSpinbox->value() == 0){
+            ui->finalTimeDurationLabel->setText(minutes + " minute(s)");
+        }else if(ui->setMinSpinbox->value() == 0){
+            ui->finalTimeDurationLabel->setText(hours + " hour(s)");
+        }else{
+            ui->finalTimeDurationLabel->setText(hours + " hour(s) " + minutes + " minute(s)");
+        }
+        ui->ExtensionCheckBox->setChecked(true);
+    });
+
+    connect(ui->finalConfirmBolusButtonBox, &QDialogButtonBox::accepted, this, [=]() {
+        ui->stackedWidget->setCurrentWidget(ui->intiatedPage);
+    });
+
+    connect(ui->confirmBolBTN, &QDialogButtonBox::accepted, this, [=]() {
+        ui->stackedWidget->setCurrentWidget(ui->finalBolusConfirmPage);
+        ui->carbGramsSpinBox->setValue(0);
+        ui->bgSpinBox->setValue(0);
+        ui->enterCarbsBTN->setText("0");
+        ui->addBgBTN->setText("Add BG");
+    });
+
+
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, [=]() {
+        ui->stackedWidget->setCurrentWidget(ui->deliverBolusPage);
+    });
 
 
     clock = new QTimer(this);
@@ -273,11 +341,14 @@ void MainWindow::on_addBgBTN_2_clicked(){
 
 
 void MainWindow::on_confirmBolusBTN_clicked(){
+    //stores the carbs and bg as strings
     QString carbs = QString::number(ui->carbGramsSpinBox->value());
     QString bg = QString::number(ui->bgSpinBox->value());
+    //this then sets the texts to those prev numbers to strings
     ui->conCarb->setText(carbs);
     ui->conBG->setText(bg);
     ui->conUnits->setText(ui->finalBolusUnits->toPlainText());
+
 }
 
 
@@ -285,9 +356,6 @@ void MainWindow::on_buttonBox_rejected(){
     ui->stackedWidget->setCurrentWidget(ui->BolusPage);
 }
 
-void MainWindow::on_buttonBox_accepted(){
-    ui->stackedWidget->setCurrentWidget(ui->deliverBolusPage);
-}
 
 
 void MainWindow::on_confirmBolBTN_rejected(){
@@ -295,19 +363,69 @@ void MainWindow::on_confirmBolBTN_rejected(){
 }
 
 
-void MainWindow::on_confirmBolBTN_accepted(){
 
-    ui->stackedWidget->setCurrentWidget(ui->HomePage);
-    ui->carbGramsSpinBox->setValue(0);
-    ui->bgSpinBox->setValue(0);
-    ui->enterCarbsBTN->setText("0");
-    ui->addBgBTN->setText("Add BG");
+void MainWindow::on_setDeliverBTN_clicked(){
+    //stores the deliver now and deliver later ammounts
+    QString deliverNow = QString::number(ui->deliverNowSpinbox->value());
+    int deliverLaterInt = 100 - ui->deliverNowSpinbox->value();
+    QString deliverLaterText = QString::number(deliverLaterInt);
+
+    //this sets the display of deliver now
+    ui->deliverNowBTN->setText(deliverNow + "%");
+
+    //this sets the display of deliver later and font stuff to make it look good
+    ui->deliverLaterLabel->setText(deliverLaterText + "%");
+    ui->deliverLaterLabel->setAlignment(Qt::AlignCenter);
+    QFont fontSize = ui->deliverLaterLabel->font();
+    fontSize.setPointSize(18);
+    ui->deliverLaterLabel->setFont(fontSize);
+
+    //updates the display back origin before this button was clicked
+    ui->stackedWidget->setCurrentWidget(ui->extendedPage);
 }
 
 
+void MainWindow::on_setTimeDurBTN_clicked(){
+    //stores the minutes and hours as strings
+    QString hours = QString::number(ui->setHourSpinbox->value());
+    QString minutes = QString::number(ui->setMinSpinbox->value());
+
+    //deciding what to set the text of the button if there are no hours or no minutes
+    if(ui->setHourSpinbox->value() == 0){
+        ui->extendedDurationBTN->setText(minutes + " minute(s)");
+    }else if(ui->setMinSpinbox->value() == 0){
+        ui->extendedDurationBTN->setText(hours + " hour(s)");
+    }else{
+        ui->extendedDurationBTN->setText(hours + " hour(s) " + minutes + " minute(s)");
+    }
+
+    //updates the display back origin before this button was clicked
+    ui->stackedWidget->setCurrentWidget(ui->extendedPage);
+}
 
 
-void MainWindow::on_radioButton_clicked(){
+void MainWindow::on_setDeliveryTimeBTN_clicked(){
+    //stores the deliver now and deliver later ammounts
+    QString deliverNow = QString::number(ui->deliverNowSpinbox->value());
+    int deliverLaterInt = 100 - ui->deliverNowSpinbox->value();
+    QString deliverLaterText = QString::number(deliverLaterInt);
+
+    //stores the minutes and hours as strings
+    QString hours = QString::number(ui->setHourSpinbox->value());
+    QString minutes = QString::number(ui->setMinSpinbox->value());
+
+    //deciding what to set the text of the button if there are no hours or no minutes
+    if(ui->setHourSpinbox->value() == 0){
+        ui->durationLabel->setText(minutes + " minute(s)");
+    }else if(ui->setMinSpinbox->value() == 0){
+        ui->durationLabel->setText(hours + " hour(s)");
+    }else{
+        ui->durationLabel->setText(hours + " hour(s) " + minutes + " minute(s)");
+    }
+
+    ui->deliverNowLabel->setText(deliverNow + "%");
+    ui->deliverLaterLabel_3->setText(deliverLaterText + "%");
 
 }
+
 

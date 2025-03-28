@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[19];
-    char stringdata0[344];
+    char stringdata0[353];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -48,9 +48,9 @@ QT_MOC_LITERAL(12, 176, 21), // "on_addBgBTN_2_clicked"
 QT_MOC_LITERAL(13, 198, 26), // "on_confirmBolusBTN_clicked"
 QT_MOC_LITERAL(14, 225, 21), // "on_buttonBox_rejected"
 QT_MOC_LITERAL(15, 247, 25), // "on_confirmBolBTN_rejected"
-QT_MOC_LITERAL(16, 273, 25), // "on_confirmBolBTN_accepted"
-QT_MOC_LITERAL(17, 299, 21), // "on_buttonBox_accepted"
-QT_MOC_LITERAL(18, 321, 22) // "on_radioButton_clicked"
+QT_MOC_LITERAL(16, 273, 24), // "on_setDeliverBTN_clicked"
+QT_MOC_LITERAL(17, 298, 24), // "on_setTimeDurBTN_clicked"
+QT_MOC_LITERAL(18, 323, 29) // "on_setDeliveryTimeBTN_clicked"
 
     },
     "MainWindow\0turnOff\0\0turnOn\0returnHomePage\0"
@@ -60,8 +60,9 @@ QT_MOC_LITERAL(18, 321, 22) // "on_radioButton_clicked"
     "on_addCarbsBTN_clicked\0on_addBgBTN_2_clicked\0"
     "on_confirmBolusBTN_clicked\0"
     "on_buttonBox_rejected\0on_confirmBolBTN_rejected\0"
-    "on_confirmBolBTN_accepted\0"
-    "on_buttonBox_accepted\0on_radioButton_clicked"
+    "on_setDeliverBTN_clicked\0"
+    "on_setTimeDurBTN_clicked\0"
+    "on_setDeliveryTimeBTN_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -136,9 +137,9 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 10: _t->on_confirmBolusBTN_clicked(); break;
         case 11: _t->on_buttonBox_rejected(); break;
         case 12: _t->on_confirmBolBTN_rejected(); break;
-        case 13: _t->on_confirmBolBTN_accepted(); break;
-        case 14: _t->on_buttonBox_accepted(); break;
-        case 15: _t->on_radioButton_clicked(); break;
+        case 13: _t->on_setDeliverBTN_clicked(); break;
+        case 14: _t->on_setTimeDurBTN_clicked(); break;
+        case 15: _t->on_setDeliveryTimeBTN_clicked(); break;
         default: ;
         }
     }
