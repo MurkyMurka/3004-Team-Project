@@ -185,6 +185,7 @@ MainWindow::MainWindow(QWidget *parent)
     isOn = false;
     turnOff();
 
+    ui->UnplugButton->setEnabled(false);
     isCharging = false;
     battery = 0;
     ui->BatteryBar->setValue(battery);
@@ -223,8 +224,8 @@ void MainWindow::turnOn() {
             ui->stackedWidget->setCurrentWidget(ui->HomePage);
             isOn = true;
         }
+        QtConcurrent::run(this, &MainWindow::batteryDrain);
     }
-    QtConcurrent::run(this, &MainWindow::batteryDrain);
 }
 
 bool MainWindow::checkingPIN() {
@@ -247,6 +248,8 @@ void MainWindow::returnHomePage() {
 
 void MainWindow::chargeDevice() {
     isCharging = true;
+    ui->ChargeButton->setEnabled(false);
+    ui->UnplugButton->setEnabled(true);
     while(isCharging && battery < MAX_BATT) {
         battery++;
         
@@ -260,6 +263,8 @@ void MainWindow::chargeDevice() {
 
 void MainWindow::unplugCharger() {
     isCharging = false;
+    ui->ChargeButton->setEnabled(true);
+    ui->UnplugButton->setEnabled(false);
 }
 
 void MainWindow::batteryDrain() {

@@ -10,11 +10,13 @@ CONFIG += c++11
 
 SOURCES += \
     configdata.cpp \
+    insulinpump.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     configdata.h \
+    insulinpump.h \
     mainwindow.h
 
 FORMS += \
