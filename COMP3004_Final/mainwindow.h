@@ -5,6 +5,8 @@
 #include <QtConcurrent/QtConcurrent>
 #include <QThread>
 #include <QWidget>
+#include <QTextEdit>
+#include <QFont>
 #include <QString>
 
 #include "configdata.h"
@@ -48,11 +50,12 @@ private slots:
 
     void on_confirmBolBTN_rejected();
 
-    void on_confirmBolBTN_accepted();
+    void on_setDeliverBTN_clicked();
 
-    void on_buttonBox_accepted();
+    void on_setTimeDurBTN_clicked();
 
-    void on_radioButton_clicked();
+    void on_setDeliveryTimeBTN_clicked();
+
 
 private:
     Ui::MainWindow *ui;
@@ -62,6 +65,7 @@ private:
     ConfigData *configData;
     bool existPIN;
     QTimer *clock;
+    int profNum = 0;
 
     void batteryDrain();
     bool checkingPIN();
