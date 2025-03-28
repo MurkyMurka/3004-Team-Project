@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>19</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QLabel" name="BolusIcon">
@@ -345,7 +345,7 @@ p, li { white-space: pre-wrap; }
        <string>START INSULIN</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="myPumpBTN_2">
+     <widget class="QPushButton" name="LoadButton">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -355,7 +355,7 @@ p, li { white-space: pre-wrap; }
        </rect>
       </property>
       <property name="text">
-       <string>Load Insulin Cartirage</string>
+       <string>Load</string>
       </property>
      </widget>
     </widget>

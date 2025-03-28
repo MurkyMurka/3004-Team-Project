@@ -63,7 +63,7 @@ public:
     QPushButton *backToHome_2;
     QPushButton *myPumpBTN;
     QPushButton *startStopBTN;
-    QPushButton *myPumpBTN_2;
+    QPushButton *LoadButton;
     QWidget *SettingsPage_1;
     QGraphicsView *DTView;
     QGraphicsView *PINView;
@@ -300,9 +300,9 @@ public:
         font.setWeight(75);
         startStopBTN->setFont(font);
         startStopBTN->setStyleSheet(QString::fromUtf8("color: red;"));
-        myPumpBTN_2 = new QPushButton(OptionsPage);
-        myPumpBTN_2->setObjectName(QString::fromUtf8("myPumpBTN_2"));
-        myPumpBTN_2->setGeometry(QRect(10, 390, 551, 101));
+        LoadButton = new QPushButton(OptionsPage);
+        LoadButton->setObjectName(QString::fromUtf8("LoadButton"));
+        LoadButton->setGeometry(QRect(10, 390, 551, 101));
         stackedWidget->addWidget(OptionsPage);
         SettingsPage_1 = new QWidget();
         SettingsPage_1->setObjectName(QString::fromUtf8("SettingsPage_1"));
@@ -823,7 +823,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(19);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -881,7 +881,7 @@ public:
         backToHome_2->setText(QCoreApplication::translate("MainWindow", "<--", nullptr));
         myPumpBTN->setText(QCoreApplication::translate("MainWindow", "My Pump", nullptr));
         startStopBTN->setText(QCoreApplication::translate("MainWindow", "START INSULIN", nullptr));
-        myPumpBTN_2->setText(QCoreApplication::translate("MainWindow", "Load Insulin Cartirage", nullptr));
+        LoadButton->setText(QCoreApplication::translate("MainWindow", "Load", nullptr));
         DTLabel->setText(QCoreApplication::translate("MainWindow", "Date / Time", nullptr));
         PINLabel->setText(QCoreApplication::translate("MainWindow", "PIN (Personal Identification Number)", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Current PIN:", nullptr));
