@@ -949,6 +949,7 @@ public:
 
         stackedWidget->setCurrentIndex(10);
 
+
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
