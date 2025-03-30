@@ -24,7 +24,11 @@
      </rect>
     </property>
     <property name="currentIndex">
+<<<<<<< HEAD
      <number>10</number>
+=======
+     <number>2</number>
+>>>>>>> caf3eb9ea9ecd0c30c3827502ae1b1264c3519d9
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QLabel" name="BolusIcon">
