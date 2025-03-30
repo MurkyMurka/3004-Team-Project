@@ -202,6 +202,19 @@ MainWindow::MainWindow(QWidget *parent)
 
     });
 
+    connect(ui->startStopBTN, &QPushButton::clicked, this, [this]() {
+        QString text = "START INSULIN";
+
+        if(ui->startStopBTN->text() == text){
+            ui->startStopBTN->setText("STOP INSULIN");
+        }else{
+           ui->startStopBTN->setText("START INSULIN");
+        }
+    });
+
+
+
+
     connect(ui->durationButtonBox, &QDialogButtonBox::accepted, this, [=]() {
         ui->stackedWidget->setCurrentWidget(ui->deliverBolusPage);
         //stores the minutes and hours as strings
