@@ -86,6 +86,17 @@ public:
     QLabel *label_42;
     QLabel *label_43;
     QPushButton *fillTubingBTN_2;
+    QWidget *setupForCannula;
+    QLabel *label_44;
+    QLabel *label_45;
+    QPushButton *goToCannulaFillingBTN;
+    QWidget *fillCannulaPage;
+    QLabel *label_46;
+    QLabel *label_47;
+    QPushButton *fillCannulaBTN;
+    QWidget *resumeInsulinPage;
+    QDialogButtonBox *loadResumeBTN;
+    QLabel *label_48;
     QWidget *SettingsPage_1;
     QGraphicsView *DTView;
     QGraphicsView *PINView;
@@ -400,6 +411,40 @@ public:
         fillTubingBTN_2->setObjectName(QString::fromUtf8("fillTubingBTN_2"));
         fillTubingBTN_2->setGeometry(QRect(240, 300, 111, 41));
         stackedWidget->addWidget(fillTubingPage);
+        setupForCannula = new QWidget();
+        setupForCannula->setObjectName(QString::fromUtf8("setupForCannula"));
+        label_44 = new QLabel(setupForCannula);
+        label_44->setObjectName(QString::fromUtf8("label_44"));
+        label_44->setGeometry(QRect(20, 130, 521, 41));
+        label_45 = new QLabel(setupForCannula);
+        label_45->setObjectName(QString::fromUtf8("label_45"));
+        label_45->setGeometry(QRect(180, 170, 181, 41));
+        goToCannulaFillingBTN = new QPushButton(setupForCannula);
+        goToCannulaFillingBTN->setObjectName(QString::fromUtf8("goToCannulaFillingBTN"));
+        goToCannulaFillingBTN->setGeometry(QRect(230, 230, 83, 25));
+        stackedWidget->addWidget(setupForCannula);
+        fillCannulaPage = new QWidget();
+        fillCannulaPage->setObjectName(QString::fromUtf8("fillCannulaPage"));
+        label_46 = new QLabel(fillCannulaPage);
+        label_46->setObjectName(QString::fromUtf8("label_46"));
+        label_46->setGeometry(QRect(20, 130, 521, 41));
+        label_47 = new QLabel(fillCannulaPage);
+        label_47->setObjectName(QString::fromUtf8("label_47"));
+        label_47->setGeometry(QRect(190, 170, 161, 41));
+        fillCannulaBTN = new QPushButton(fillCannulaPage);
+        fillCannulaBTN->setObjectName(QString::fromUtf8("fillCannulaBTN"));
+        fillCannulaBTN->setGeometry(QRect(230, 230, 83, 25));
+        stackedWidget->addWidget(fillCannulaPage);
+        resumeInsulinPage = new QWidget();
+        resumeInsulinPage->setObjectName(QString::fromUtf8("resumeInsulinPage"));
+        loadResumeBTN = new QDialogButtonBox(resumeInsulinPage);
+        loadResumeBTN->setObjectName(QString::fromUtf8("loadResumeBTN"));
+        loadResumeBTN->setGeometry(QRect(200, 230, 166, 25));
+        loadResumeBTN->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        label_48 = new QLabel(resumeInsulinPage);
+        label_48->setObjectName(QString::fromUtf8("label_48"));
+        label_48->setGeometry(QRect(110, 170, 351, 51));
+        stackedWidget->addWidget(resumeInsulinPage);
         SettingsPage_1 = new QWidget();
         SettingsPage_1->setObjectName(QString::fromUtf8("SettingsPage_1"));
         DTView = new QGraphicsView(SettingsPage_1);
@@ -916,7 +961,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(7);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -989,6 +1034,13 @@ public:
         label_42->setText(QCoreApplication::translate("MainWindow", "connect the tubing to your cartridge.", nullptr));
         label_43->setText(QCoreApplication::translate("MainWindow", "On the next screen, you will fill your tubing with insulin.", nullptr));
         fillTubingBTN_2->setText(QCoreApplication::translate("MainWindow", "Fill Tubing", nullptr));
+        label_44->setText(QCoreApplication::translate("MainWindow", "If you see drops at the end of the tubing, press Done. If not, wait till the tube is", nullptr));
+        label_45->setText(QCoreApplication::translate("MainWindow", "filled before pressing Done.", nullptr));
+        goToCannulaFillingBTN->setText(QCoreApplication::translate("MainWindow", "DONE", nullptr));
+        label_46->setText(QCoreApplication::translate("MainWindow", "Insert a new set and connect to the filled tubing. When pressing next, it will fill", nullptr));
+        label_47->setText(QCoreApplication::translate("MainWindow", "the cannula with insulin.", nullptr));
+        fillCannulaBTN->setText(QCoreApplication::translate("MainWindow", "Next", nullptr));
+        label_48->setText(QCoreApplication::translate("MainWindow", "All done! Would you like to resume the insuling now?", nullptr));
         DTLabel->setText(QCoreApplication::translate("MainWindow", "Date / Time", nullptr));
         PINLabel->setText(QCoreApplication::translate("MainWindow", "PIN (Personal Identification Number)", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Current PIN:", nullptr));

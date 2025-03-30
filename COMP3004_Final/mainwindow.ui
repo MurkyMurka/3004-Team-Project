@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QLabel" name="BolusIcon">
@@ -596,6 +596,116 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="text">
        <string>Fill Tubing</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="setupForCannula">
+     <widget class="QLabel" name="label_44">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>130</y>
+        <width>521</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>If you see drops at the end of the tubing, press Done. If not, wait till the tube is</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_45">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>170</y>
+        <width>181</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>filled before pressing Done.</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="goToCannulaFillingBTN">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>230</y>
+        <width>83</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>DONE</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="fillCannulaPage">
+     <widget class="QLabel" name="label_46">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>130</y>
+        <width>521</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Insert a new set and connect to the filled tubing. When pressing next, it will fill</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_47">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>170</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>the cannula with insulin.</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="fillCannulaBTN">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>230</y>
+        <width>83</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="resumeInsulinPage">
+     <widget class="QDialogButtonBox" name="loadResumeBTN">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>230</y>
+        <width>166</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="standardButtons">
+       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_48">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>170</y>
+        <width>351</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>All done! Would you like to resume the insuling now?</string>
       </property>
      </widget>
     </widget>

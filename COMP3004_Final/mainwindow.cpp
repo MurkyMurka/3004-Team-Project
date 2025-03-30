@@ -173,7 +173,34 @@ MainWindow::MainWindow(QWidget *parent)
         ui->stackedWidget->setCurrentWidget(ui->fillTubingPage);
     });
 
+    connect(ui->fillTubingBTN_2, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->setupForCannula);
+    });
 
+    connect(ui->goToCannulaFillingBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->fillCannulaPage);
+    });
+
+    connect(ui->fillCannulaBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->resumeInsulinPage);
+    });
+
+    connect(ui->loadResumeBTN, &QDialogButtonBox::accepted, this, [=]() {
+        ui->stackedWidget->setCurrentWidget(ui->HomePage);
+        ui->startStopBTN->setText("STOP INSULIN");
+
+    });
+
+    connect(ui->loadResumeBTN, &QDialogButtonBox::rejected, this, [=]() {
+        ui->stackedWidget->setCurrentWidget(ui->HomePage);
+        ui->startStopBTN->setText("START INSULIN");
+
+    });
+
+    connect(ui->loadResumeBTN, &QDialogButtonBox::rejected, this, [=]() {
+        ui->stackedWidget->setCurrentWidget(ui->HomePage);
+
+    });
 
     connect(ui->durationButtonBox, &QDialogButtonBox::accepted, this, [=]() {
         ui->stackedWidget->setCurrentWidget(ui->deliverBolusPage);
