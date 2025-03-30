@@ -17,7 +17,7 @@ class userProfile {
         bool isActive();
 
     private:
-        bool isActive;
+        bool isActiveBool;
         float icr;
         float correctionFactor;
         float targetBG;

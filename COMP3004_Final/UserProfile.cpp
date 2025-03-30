@@ -7,14 +7,14 @@ userProfile::userProfile(float i, float cor, float tar, float curr, float io, fl
     currBG = curr;
     iob = io;
     immediateBolus = immBol;
-    isActive = false;
+    isActiveBool = false;
 }
 
 void userProfile::addTimeSegment(double t) {
     timeSegments.append(t);
 }
 
-void userProfile::activateProfile() { isActive = true; }
+void userProfile::activateProfile() { isActiveBool = true; }
 
 void userProfile::setIcr(float newNum) { icr = newNum; }
 
@@ -28,4 +28,4 @@ void userProfile::setIob(float newNum) { iob = newNum; }
 
 void userProfile::setImmediate(float newNum) { immediateBolus = newNum; }
 
-bool userProfile::isActive() { return isActive; }
+bool userProfile::isActive() { return isActiveBool; }

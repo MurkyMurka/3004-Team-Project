@@ -11,11 +11,13 @@ CONFIG += c++11
 SOURCES += \
     configdata.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    UserProfile.cpp
 
 HEADERS += \
     configdata.h \
-    mainwindow.h
+    mainwindow.h \
+    UserProfile.h
 
 FORMS += \
     mainwindow.ui
