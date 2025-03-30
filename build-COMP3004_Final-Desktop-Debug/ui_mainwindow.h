@@ -48,10 +48,7 @@ public:
     QProgressBar *BatteryBar;
     QDateTimeEdit *dateTimeEdit;
     QTextEdit *textEdit;
-    QTextEdit *textEdit_2;
     QTextEdit *inuslinUnits;
-    QTextEdit *textEdit_4;
-    QTextEdit *timeRemaining;
     QWidget *OffPage;
     QTextBrowser *textBrowser;
     QFrame *PINFrame;
@@ -63,7 +60,40 @@ public:
     QPushButton *backToHome_2;
     QPushButton *myPumpBTN;
     QPushButton *startStopBTN;
-    QPushButton *myPumpBTN_2;
+    QPushButton *loadInsulinCartBTN;
+    QWidget *loadPage;
+    QPushButton *backToOptionsBTN_2;
+    QLabel *label_34;
+    QPushButton *changeCartBTN;
+    QWidget *stopDeliverPage;
+    QLabel *label_35;
+    QDialogButtonBox *cartStopConfirmBTN;
+    QLabel *label_36;
+    QWidget *disconnectPage;
+    QLabel *label_37;
+    QLabel *label_38;
+    QDialogButtonBox *cartStopConfirmBTN_2;
+    QWidget *insulinCartSizePage;
+    QLabel *label_39;
+    QSpinBox *insulinCartAmmountSpinBox;
+    QPushButton *continueCartBTN;
+    QLabel *label_40;
+    QWidget *fillTubingPage;
+    QLabel *label_41;
+    QLabel *label_42;
+    QLabel *label_43;
+    QPushButton *fillTubingBTN_2;
+    QWidget *setupForCannula;
+    QLabel *label_44;
+    QLabel *label_45;
+    QPushButton *goToCannulaFillingBTN;
+    QWidget *fillCannulaPage;
+    QLabel *label_46;
+    QLabel *label_47;
+    QPushButton *fillCannulaBTN;
+    QWidget *resumeInsulinPage;
+    QDialogButtonBox *loadResumeBTN;
+    QLabel *label_48;
     QWidget *SettingsPage_1;
     QGraphicsView *DTView;
     QGraphicsView *PINView;
@@ -229,10 +259,10 @@ public:
         BolusBar->setValue(24);
         OptionsButton = new QPushButton(HomePage);
         OptionsButton->setObjectName(QString::fromUtf8("OptionsButton"));
-        OptionsButton->setGeometry(QRect(10, 250, 551, 101));
+        OptionsButton->setGeometry(QRect(10, 390, 261, 101));
         BolusButton = new QPushButton(HomePage);
         BolusButton->setObjectName(QString::fromUtf8("BolusButton"));
-        BolusButton->setGeometry(QRect(10, 100, 551, 101));
+        BolusButton->setGeometry(QRect(290, 390, 261, 101));
         BatteryBar = new QProgressBar(HomePage);
         BatteryBar->setObjectName(QString::fromUtf8("BatteryBar"));
         BatteryBar->setGeometry(QRect(10, 20, 151, 30));
@@ -243,22 +273,11 @@ public:
         dateTimeEdit->setReadOnly(true);
         textEdit = new QTextEdit(HomePage);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(30, 390, 371, 51));
+        textEdit->setGeometry(QRect(10, 350, 221, 31));
         textEdit->setReadOnly(true);
-        textEdit_2 = new QTextEdit(HomePage);
-        textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
-        textEdit_2->setGeometry(QRect(30, 450, 141, 30));
-        textEdit_2->setReadOnly(true);
         inuslinUnits = new QTextEdit(HomePage);
         inuslinUnits->setObjectName(QString::fromUtf8("inuslinUnits"));
-        inuslinUnits->setGeometry(QRect(180, 450, 41, 30));
-        textEdit_4 = new QTextEdit(HomePage);
-        textEdit_4->setObjectName(QString::fromUtf8("textEdit_4"));
-        textEdit_4->setGeometry(QRect(240, 450, 181, 30));
-        textEdit_4->setReadOnly(true);
-        timeRemaining = new QTextEdit(HomePage);
-        timeRemaining->setObjectName(QString::fromUtf8("timeRemaining"));
-        timeRemaining->setGeometry(QRect(440, 450, 121, 30));
+        inuslinUnits->setGeometry(QRect(260, 350, 41, 30));
         stackedWidget->addWidget(HomePage);
         OffPage = new QWidget();
         OffPage->setObjectName(QString::fromUtf8("OffPage"));
@@ -300,10 +319,118 @@ public:
         font.setWeight(75);
         startStopBTN->setFont(font);
         startStopBTN->setStyleSheet(QString::fromUtf8("color: red;"));
-        myPumpBTN_2 = new QPushButton(OptionsPage);
-        myPumpBTN_2->setObjectName(QString::fromUtf8("myPumpBTN_2"));
-        myPumpBTN_2->setGeometry(QRect(10, 390, 551, 101));
+        loadInsulinCartBTN = new QPushButton(OptionsPage);
+        loadInsulinCartBTN->setObjectName(QString::fromUtf8("loadInsulinCartBTN"));
+        loadInsulinCartBTN->setGeometry(QRect(10, 390, 551, 101));
         stackedWidget->addWidget(OptionsPage);
+        loadPage = new QWidget();
+        loadPage->setObjectName(QString::fromUtf8("loadPage"));
+        backToOptionsBTN_2 = new QPushButton(loadPage);
+        backToOptionsBTN_2->setObjectName(QString::fromUtf8("backToOptionsBTN_2"));
+        backToOptionsBTN_2->setGeometry(QRect(10, 10, 81, 41));
+        label_34 = new QLabel(loadPage);
+        label_34->setObjectName(QString::fromUtf8("label_34"));
+        label_34->setGeometry(QRect(270, 20, 51, 31));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("DejaVu Sans"));
+        font1.setPointSize(14);
+        label_34->setFont(font1);
+        changeCartBTN = new QPushButton(loadPage);
+        changeCartBTN->setObjectName(QString::fromUtf8("changeCartBTN"));
+        changeCartBTN->setGeometry(QRect(10, 60, 551, 101));
+        stackedWidget->addWidget(loadPage);
+        stopDeliverPage = new QWidget();
+        stopDeliverPage->setObjectName(QString::fromUtf8("stopDeliverPage"));
+        label_35 = new QLabel(stopDeliverPage);
+        label_35->setObjectName(QString::fromUtf8("label_35"));
+        label_35->setGeometry(QRect(50, 100, 451, 61));
+        cartStopConfirmBTN = new QDialogButtonBox(stopDeliverPage);
+        cartStopConfirmBTN->setObjectName(QString::fromUtf8("cartStopConfirmBTN"));
+        cartStopConfirmBTN->setGeometry(QRect(180, 260, 166, 25));
+        cartStopConfirmBTN->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        label_36 = new QLabel(stopDeliverPage);
+        label_36->setObjectName(QString::fromUtf8("label_36"));
+        label_36->setGeometry(QRect(230, 180, 81, 31));
+        stackedWidget->addWidget(stopDeliverPage);
+        disconnectPage = new QWidget();
+        disconnectPage->setObjectName(QString::fromUtf8("disconnectPage"));
+        label_37 = new QLabel(disconnectPage);
+        label_37->setObjectName(QString::fromUtf8("label_37"));
+        label_37->setGeometry(QRect(70, 100, 391, 61));
+        label_38 = new QLabel(disconnectPage);
+        label_38->setObjectName(QString::fromUtf8("label_38"));
+        label_38->setGeometry(QRect(170, 180, 181, 31));
+        cartStopConfirmBTN_2 = new QDialogButtonBox(disconnectPage);
+        cartStopConfirmBTN_2->setObjectName(QString::fromUtf8("cartStopConfirmBTN_2"));
+        cartStopConfirmBTN_2->setGeometry(QRect(180, 260, 166, 25));
+        cartStopConfirmBTN_2->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        stackedWidget->addWidget(disconnectPage);
+        insulinCartSizePage = new QWidget();
+        insulinCartSizePage->setObjectName(QString::fromUtf8("insulinCartSizePage"));
+        label_39 = new QLabel(insulinCartSizePage);
+        label_39->setObjectName(QString::fromUtf8("label_39"));
+        label_39->setGeometry(QRect(150, 140, 151, 61));
+        insulinCartAmmountSpinBox = new QSpinBox(insulinCartSizePage);
+        insulinCartAmmountSpinBox->setObjectName(QString::fromUtf8("insulinCartAmmountSpinBox"));
+        insulinCartAmmountSpinBox->setGeometry(QRect(310, 150, 71, 41));
+        insulinCartAmmountSpinBox->setMinimum(95);
+        insulinCartAmmountSpinBox->setMaximum(300);
+        continueCartBTN = new QPushButton(insulinCartSizePage);
+        continueCartBTN->setObjectName(QString::fromUtf8("continueCartBTN"));
+        continueCartBTN->setGeometry(QRect(240, 240, 111, 31));
+        label_40 = new QLabel(insulinCartSizePage);
+        label_40->setObjectName(QString::fromUtf8("label_40"));
+        label_40->setGeometry(QRect(390, 160, 21, 31));
+        stackedWidget->addWidget(insulinCartSizePage);
+        fillTubingPage = new QWidget();
+        fillTubingPage->setObjectName(QString::fromUtf8("fillTubingPage"));
+        label_41 = new QLabel(fillTubingPage);
+        label_41->setObjectName(QString::fromUtf8("label_41"));
+        label_41->setGeometry(QRect(80, 100, 421, 61));
+        label_42 = new QLabel(fillTubingPage);
+        label_42->setObjectName(QString::fromUtf8("label_42"));
+        label_42->setGeometry(QRect(170, 120, 241, 61));
+        label_43 = new QLabel(fillTubingPage);
+        label_43->setObjectName(QString::fromUtf8("label_43"));
+        label_43->setGeometry(QRect(120, 230, 361, 61));
+        fillTubingBTN_2 = new QPushButton(fillTubingPage);
+        fillTubingBTN_2->setObjectName(QString::fromUtf8("fillTubingBTN_2"));
+        fillTubingBTN_2->setGeometry(QRect(240, 300, 111, 41));
+        stackedWidget->addWidget(fillTubingPage);
+        setupForCannula = new QWidget();
+        setupForCannula->setObjectName(QString::fromUtf8("setupForCannula"));
+        label_44 = new QLabel(setupForCannula);
+        label_44->setObjectName(QString::fromUtf8("label_44"));
+        label_44->setGeometry(QRect(20, 130, 521, 41));
+        label_45 = new QLabel(setupForCannula);
+        label_45->setObjectName(QString::fromUtf8("label_45"));
+        label_45->setGeometry(QRect(180, 170, 181, 41));
+        goToCannulaFillingBTN = new QPushButton(setupForCannula);
+        goToCannulaFillingBTN->setObjectName(QString::fromUtf8("goToCannulaFillingBTN"));
+        goToCannulaFillingBTN->setGeometry(QRect(230, 230, 83, 25));
+        stackedWidget->addWidget(setupForCannula);
+        fillCannulaPage = new QWidget();
+        fillCannulaPage->setObjectName(QString::fromUtf8("fillCannulaPage"));
+        label_46 = new QLabel(fillCannulaPage);
+        label_46->setObjectName(QString::fromUtf8("label_46"));
+        label_46->setGeometry(QRect(20, 130, 521, 41));
+        label_47 = new QLabel(fillCannulaPage);
+        label_47->setObjectName(QString::fromUtf8("label_47"));
+        label_47->setGeometry(QRect(190, 170, 161, 41));
+        fillCannulaBTN = new QPushButton(fillCannulaPage);
+        fillCannulaBTN->setObjectName(QString::fromUtf8("fillCannulaBTN"));
+        fillCannulaBTN->setGeometry(QRect(230, 230, 83, 25));
+        stackedWidget->addWidget(fillCannulaPage);
+        resumeInsulinPage = new QWidget();
+        resumeInsulinPage->setObjectName(QString::fromUtf8("resumeInsulinPage"));
+        loadResumeBTN = new QDialogButtonBox(resumeInsulinPage);
+        loadResumeBTN->setObjectName(QString::fromUtf8("loadResumeBTN"));
+        loadResumeBTN->setGeometry(QRect(200, 230, 166, 25));
+        loadResumeBTN->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        label_48 = new QLabel(resumeInsulinPage);
+        label_48->setObjectName(QString::fromUtf8("label_48"));
+        label_48->setGeometry(QRect(110, 170, 351, 51));
+        stackedWidget->addWidget(resumeInsulinPage);
         SettingsPage_1 = new QWidget();
         SettingsPage_1->setObjectName(QString::fromUtf8("SettingsPage_1"));
         DTView = new QGraphicsView(SettingsPage_1);
@@ -468,9 +595,6 @@ public:
         label_16 = new QLabel(confirmBolusPage);
         label_16->setObjectName(QString::fromUtf8("label_16"));
         label_16->setGeometry(QRect(210, 20, 171, 31));
-        QFont font1;
-        font1.setFamily(QString::fromUtf8("DejaVu Sans"));
-        font1.setPointSize(14);
         label_16->setFont(font1);
         label_17 = new QLabel(confirmBolusPage);
         label_17->setObjectName(QString::fromUtf8("label_17"));
@@ -823,7 +947,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(19);
+        stackedWidget->setCurrentIndex(10);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -843,23 +967,8 @@ public:
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt;\">INSULIN ON BOARD (IOB)</span></p></body></html>", nullptr));
-        textEdit_2->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Units</p></body></html>", nullptr));
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">INSULIN ON BOARD (IOB)</span></p></body></html>", nullptr));
         inuslinUnits->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
-        textEdit_4->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Time Remaining</p></body></html>", nullptr));
-        timeRemaining->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
@@ -881,7 +990,28 @@ public:
         backToHome_2->setText(QCoreApplication::translate("MainWindow", "<--", nullptr));
         myPumpBTN->setText(QCoreApplication::translate("MainWindow", "My Pump", nullptr));
         startStopBTN->setText(QCoreApplication::translate("MainWindow", "START INSULIN", nullptr));
-        myPumpBTN_2->setText(QCoreApplication::translate("MainWindow", "Load Insulin Cartirage", nullptr));
+        loadInsulinCartBTN->setText(QCoreApplication::translate("MainWindow", "Load Insulin Cartirage", nullptr));
+        backToOptionsBTN_2->setText(QCoreApplication::translate("MainWindow", "<--", nullptr));
+        label_34->setText(QCoreApplication::translate("MainWindow", "Load", nullptr));
+        changeCartBTN->setText(QCoreApplication::translate("MainWindow", "Change Cartridge", nullptr));
+        label_35->setText(QCoreApplication::translate("MainWindow", "In order to change a cartridge, all insulin deliveries will be stopped.", nullptr));
+        label_36->setText(QCoreApplication::translate("MainWindow", "Continue?", nullptr));
+        label_37->setText(QCoreApplication::translate("MainWindow", "Make sure the infusion set is disconnected from your body.", nullptr));
+        label_38->setText(QCoreApplication::translate("MainWindow", "Are you ready to continue?", nullptr));
+        label_39->setText(QCoreApplication::translate("MainWindow", "Insulin Cartridge Size:", nullptr));
+        continueCartBTN->setText(QCoreApplication::translate("MainWindow", "Continue", nullptr));
+        label_40->setText(QCoreApplication::translate("MainWindow", "u", nullptr));
+        label_41->setText(QCoreApplication::translate("MainWindow", "Make sure the set is disconnected from your body and securely", nullptr));
+        label_42->setText(QCoreApplication::translate("MainWindow", "connect the tubing to your cartridge.", nullptr));
+        label_43->setText(QCoreApplication::translate("MainWindow", "On the next screen, you will fill your tubing with insulin.", nullptr));
+        fillTubingBTN_2->setText(QCoreApplication::translate("MainWindow", "Fill Tubing", nullptr));
+        label_44->setText(QCoreApplication::translate("MainWindow", "If you see drops at the end of the tubing, press Done. If not, wait till the tube is", nullptr));
+        label_45->setText(QCoreApplication::translate("MainWindow", "filled before pressing Done.", nullptr));
+        goToCannulaFillingBTN->setText(QCoreApplication::translate("MainWindow", "DONE", nullptr));
+        label_46->setText(QCoreApplication::translate("MainWindow", "Insert a new set and connect to the filled tubing. When pressing next, it will fill", nullptr));
+        label_47->setText(QCoreApplication::translate("MainWindow", "the cannula with insulin.", nullptr));
+        fillCannulaBTN->setText(QCoreApplication::translate("MainWindow", "Next", nullptr));
+        label_48->setText(QCoreApplication::translate("MainWindow", "All done! Would you like to resume the insuling now?", nullptr));
         DTLabel->setText(QCoreApplication::translate("MainWindow", "Date / Time", nullptr));
         PINLabel->setText(QCoreApplication::translate("MainWindow", "PIN (Personal Identification Number)", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Current PIN:", nullptr));
