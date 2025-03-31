@@ -10,6 +10,7 @@
 #include <QString>
 
 #include "configdata.h"
+#include "insulinpump.h"
 
 #define MAX_BATT 100
 
@@ -66,6 +67,7 @@ private:
     bool existPIN;
     QTimer *clock;
     int profNum = 0;
+    InsulinPump *insulinPump;
 
     void batteryDrain();
     bool checkingPIN();

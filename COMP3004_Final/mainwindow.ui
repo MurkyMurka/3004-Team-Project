@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>10</number>
+     <number>11</number>
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QLabel" name="BolusIcon">
@@ -445,7 +445,7 @@ p, li { white-space: pre-wrap; }
        <string>Insulin Cartridge Size:</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="insulinCartAmmountSpinBox">
+     <widget class="QSpinBox" name="insulinCartAmountSpinBox">
       <property name="geometry">
        <rect>
         <x>310</x>
@@ -547,7 +547,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>130</y>
+        <y>240</y>
         <width>521</width>
         <height>41</height>
        </rect>
@@ -560,7 +560,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>180</x>
-        <y>170</y>
+        <y>280</y>
         <width>181</width>
         <height>41</height>
        </rect>
@@ -573,13 +573,94 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>230</x>
-        <y>230</y>
+        <y>340</y>
         <width>83</width>
         <height>25</height>
        </rect>
       </property>
       <property name="text">
        <string>DONE</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="TubingUnit">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>150</y>
+        <width>61</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_49">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>150</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Tube units:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_50">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>110</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Fill Tubing:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="StartStopTubingBTN">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>110</y>
+        <width>83</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Start</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_51">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>160</y>
+        <width>16</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>u</string>
       </property>
      </widget>
     </widget>

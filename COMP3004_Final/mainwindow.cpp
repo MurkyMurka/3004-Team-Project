@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    insulinPump = new InsulinPump(ui->TubingUnit, ui->StartStopTubingBTN);
+
     connect(ui->OnButton, SIGNAL(clicked()), this, SLOT(turnOn()));
 
     connect(ui->OffButton, SIGNAL(clicked()), this, SLOT(turnOff()));
@@ -170,12 +172,15 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(ui->continueCartBTN, &QPushButton::clicked, this, [this]() {
+        insulinPump->refillCartridge(static_cast<float>(ui->insulinCartAmountSpinBox->value()));
         ui->stackedWidget->setCurrentWidget(ui->fillTubingPage);
     });
 
     connect(ui->fillTubingBTN_2, &QPushButton::clicked, this, [this]() {
         ui->stackedWidget->setCurrentWidget(ui->setupForCannula);
     });
+
+    connect(ui->StartStopTubingBTN, &QPushButton::clicked, insulinPump, &InsulinPump::startStopRefillTubing);
 
     connect(ui->goToCannulaFillingBTN, &QPushButton::clicked, this, [this]() {
         ui->stackedWidget->setCurrentWidget(ui->fillCannulaPage);
@@ -268,6 +273,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete configData;
+    delete insulinPump;
 }
 
 void MainWindow::turnOff() {

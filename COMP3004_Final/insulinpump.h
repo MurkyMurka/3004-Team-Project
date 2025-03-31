@@ -10,15 +10,18 @@
 #include <QtConcurrent/QtConcurrent>
 #include <QThread>
 #include <QVector>
+#include <QTextBrowser>
+#include <QPushButton>
+#include <QString>
+#include <iostream>
 
 class InsulinPump : public QObject
 {
    Q_OBJECT
 public:
-   explicit InsulinPump();
+   explicit InsulinPump(QTextBrowser *_tubeDisplay, QPushButton *_tubeButton);
    ~InsulinPump() { /* Empty */}
    void refillCartridge(float incomingUnits);
-   void refillTubing();
 
 public slots:
    void startStopRefillTubing();
@@ -29,6 +32,10 @@ private:
    float numCannula;
    float iOB;
    bool refillingTubing;
+   QTextBrowser *tubeDisplay;
+   QPushButton *tubeButton;
+
+   void refillTubing();
 };
 
 #endif // INSULINPUMP_H

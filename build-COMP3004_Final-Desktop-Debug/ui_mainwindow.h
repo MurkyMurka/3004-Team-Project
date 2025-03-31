@@ -75,7 +75,7 @@ public:
     QDialogButtonBox *cartStopConfirmBTN_2;
     QWidget *insulinCartSizePage;
     QLabel *label_39;
-    QSpinBox *insulinCartAmmountSpinBox;
+    QSpinBox *insulinCartAmountSpinBox;
     QPushButton *continueCartBTN;
     QLabel *label_40;
     QWidget *fillTubingPage;
@@ -87,6 +87,11 @@ public:
     QLabel *label_44;
     QLabel *label_45;
     QPushButton *goToCannulaFillingBTN;
+    QTextBrowser *TubingUnit;
+    QLabel *label_49;
+    QLabel *label_50;
+    QPushButton *StartStopTubingBTN;
+    QLabel *label_51;
     QWidget *fillCannulaPage;
     QLabel *label_46;
     QLabel *label_47;
@@ -370,11 +375,11 @@ public:
         label_39 = new QLabel(insulinCartSizePage);
         label_39->setObjectName(QString::fromUtf8("label_39"));
         label_39->setGeometry(QRect(150, 140, 151, 61));
-        insulinCartAmmountSpinBox = new QSpinBox(insulinCartSizePage);
-        insulinCartAmmountSpinBox->setObjectName(QString::fromUtf8("insulinCartAmmountSpinBox"));
-        insulinCartAmmountSpinBox->setGeometry(QRect(310, 150, 71, 41));
-        insulinCartAmmountSpinBox->setMinimum(95);
-        insulinCartAmmountSpinBox->setMaximum(300);
+        insulinCartAmountSpinBox = new QSpinBox(insulinCartSizePage);
+        insulinCartAmountSpinBox->setObjectName(QString::fromUtf8("insulinCartAmountSpinBox"));
+        insulinCartAmountSpinBox->setGeometry(QRect(310, 150, 71, 41));
+        insulinCartAmountSpinBox->setMinimum(95);
+        insulinCartAmountSpinBox->setMaximum(300);
         continueCartBTN = new QPushButton(insulinCartSizePage);
         continueCartBTN->setObjectName(QString::fromUtf8("continueCartBTN"));
         continueCartBTN->setGeometry(QRect(240, 240, 111, 31));
@@ -401,13 +406,33 @@ public:
         setupForCannula->setObjectName(QString::fromUtf8("setupForCannula"));
         label_44 = new QLabel(setupForCannula);
         label_44->setObjectName(QString::fromUtf8("label_44"));
-        label_44->setGeometry(QRect(20, 130, 521, 41));
+        label_44->setGeometry(QRect(20, 240, 521, 41));
         label_45 = new QLabel(setupForCannula);
         label_45->setObjectName(QString::fromUtf8("label_45"));
-        label_45->setGeometry(QRect(180, 170, 181, 41));
+        label_45->setGeometry(QRect(180, 280, 181, 41));
         goToCannulaFillingBTN = new QPushButton(setupForCannula);
         goToCannulaFillingBTN->setObjectName(QString::fromUtf8("goToCannulaFillingBTN"));
-        goToCannulaFillingBTN->setGeometry(QRect(230, 230, 83, 25));
+        goToCannulaFillingBTN->setGeometry(QRect(230, 340, 83, 25));
+        TubingUnit = new QTextBrowser(setupForCannula);
+        TubingUnit->setObjectName(QString::fromUtf8("TubingUnit"));
+        TubingUnit->setGeometry(QRect(310, 150, 61, 31));
+        label_49 = new QLabel(setupForCannula);
+        label_49->setObjectName(QString::fromUtf8("label_49"));
+        label_49->setGeometry(QRect(140, 150, 121, 31));
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("DejaVu Sans"));
+        font2.setPointSize(16);
+        label_49->setFont(font2);
+        label_50 = new QLabel(setupForCannula);
+        label_50->setObjectName(QString::fromUtf8("label_50"));
+        label_50->setGeometry(QRect(140, 110, 121, 31));
+        label_50->setFont(font2);
+        StartStopTubingBTN = new QPushButton(setupForCannula);
+        StartStopTubingBTN->setObjectName(QString::fromUtf8("StartStopTubingBTN"));
+        StartStopTubingBTN->setGeometry(QRect(300, 110, 83, 25));
+        label_51 = new QLabel(setupForCannula);
+        label_51->setObjectName(QString::fromUtf8("label_51"));
+        label_51->setGeometry(QRect(390, 160, 16, 17));
         stackedWidget->addWidget(setupForCannula);
         fillCannulaPage = new QWidget();
         fillCannulaPage->setObjectName(QString::fromUtf8("fillCannulaPage"));
@@ -686,10 +711,10 @@ public:
         deliverNowBTN = new QPushButton(extendedPage);
         deliverNowBTN->setObjectName(QString::fromUtf8("deliverNowBTN"));
         deliverNowBTN->setGeometry(QRect(20, 130, 251, 131));
-        QFont font2;
-        font2.setFamily(QString::fromUtf8("DejaVu Sans"));
-        font2.setPointSize(18);
-        deliverNowBTN->setFont(font2);
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("DejaVu Sans"));
+        font3.setPointSize(18);
+        deliverNowBTN->setFont(font3);
         label_29 = new QLabel(extendedPage);
         label_29->setObjectName(QString::fromUtf8("label_29"));
         label_29->setGeometry(QRect(20, 100, 101, 31));
@@ -712,12 +737,12 @@ public:
         deliverLaterLabel = new QLabel(extendedPage);
         deliverLaterLabel->setObjectName(QString::fromUtf8("deliverLaterLabel"));
         deliverLaterLabel->setGeometry(QRect(410, 170, 71, 41));
-        QFont font3;
-        font3.setFamily(QString::fromUtf8("DejaVu Sans"));
-        font3.setPointSize(18);
-        font3.setBold(false);
-        font3.setWeight(50);
-        deliverLaterLabel->setFont(font3);
+        QFont font4;
+        font4.setFamily(QString::fromUtf8("DejaVu Sans"));
+        font4.setPointSize(18);
+        font4.setBold(false);
+        font4.setWeight(50);
+        deliverLaterLabel->setFont(font4);
         deliverLaterLabel->setAlignment(Qt::AlignCenter);
         stackedWidget->addWidget(extendedPage);
         deliverNowPercentagePage = new QWidget();
@@ -872,28 +897,28 @@ public:
         profileTable = new QTableWidget(personalProfilesPage);
         if (profileTable->columnCount() < 3)
             profileTable->setColumnCount(3);
-        QFont font4;
-        font4.setFamily(QString::fromUtf8("DejaVu Sans"));
-        font4.setPointSize(12);
-        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
-        __qtablewidgetitem->setTextAlignment(Qt::AlignJustify|Qt::AlignVCenter);
-        __qtablewidgetitem->setFont(font4);
-        profileTable->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QFont font5;
         font5.setFamily(QString::fromUtf8("DejaVu Sans"));
         font5.setPointSize(12);
-        font5.setItalic(false);
-        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
-        __qtablewidgetitem1->setTextAlignment(Qt::AlignJustify|Qt::AlignVCenter);
-        __qtablewidgetitem1->setFont(font5);
-        profileTable->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        __qtablewidgetitem->setTextAlignment(Qt::AlignJustify|Qt::AlignVCenter);
+        __qtablewidgetitem->setFont(font5);
+        profileTable->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QFont font6;
         font6.setFamily(QString::fromUtf8("DejaVu Sans"));
         font6.setPointSize(12);
-        font6.setItalic(true);
+        font6.setItalic(false);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        __qtablewidgetitem1->setTextAlignment(Qt::AlignJustify|Qt::AlignVCenter);
+        __qtablewidgetitem1->setFont(font6);
+        profileTable->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QFont font7;
+        font7.setFamily(QString::fromUtf8("DejaVu Sans"));
+        font7.setPointSize(12);
+        font7.setItalic(true);
         QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
         __qtablewidgetitem2->setTextAlignment(Qt::AlignJustify|Qt::AlignVCenter);
-        __qtablewidgetitem2->setFont(font6);
+        __qtablewidgetitem2->setFont(font7);
         profileTable->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         profileTable->setObjectName(QString::fromUtf8("profileTable"));
         profileTable->setGeometry(QRect(100, 140, 401, 211));
@@ -912,10 +937,10 @@ public:
         nameErrorLabel = new QLabel(profileNameCreatePage);
         nameErrorLabel->setObjectName(QString::fromUtf8("nameErrorLabel"));
         nameErrorLabel->setGeometry(QRect(70, 70, 451, 71));
-        QFont font7;
-        font7.setFamily(QString::fromUtf8("DejaVu Sans"));
-        font7.setPointSize(26);
-        nameErrorLabel->setFont(font7);
+        QFont font8;
+        font8.setFamily(QString::fromUtf8("DejaVu Sans"));
+        font8.setPointSize(26);
+        nameErrorLabel->setFont(font8);
         nameErrorLabel->setStyleSheet(QString::fromUtf8("color: red;"));
         backToPersonalProfilesPageBTN = new QPushButton(profileNameCreatePage);
         backToPersonalProfilesPageBTN->setObjectName(QString::fromUtf8("backToPersonalProfilesPageBTN"));
@@ -947,7 +972,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(10);
+        stackedWidget->setCurrentIndex(11);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1008,6 +1033,15 @@ public:
         label_44->setText(QCoreApplication::translate("MainWindow", "If you see drops at the end of the tubing, press Done. If not, wait till the tube is", nullptr));
         label_45->setText(QCoreApplication::translate("MainWindow", "filled before pressing Done.", nullptr));
         goToCannulaFillingBTN->setText(QCoreApplication::translate("MainWindow", "DONE", nullptr));
+        TubingUnit->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        label_49->setText(QCoreApplication::translate("MainWindow", "Tube units:", nullptr));
+        label_50->setText(QCoreApplication::translate("MainWindow", "Fill Tubing:", nullptr));
+        StartStopTubingBTN->setText(QCoreApplication::translate("MainWindow", "Start", nullptr));
+        label_51->setText(QCoreApplication::translate("MainWindow", "u", nullptr));
         label_46->setText(QCoreApplication::translate("MainWindow", "Insert a new set and connect to the filled tubing. When pressing next, it will fill", nullptr));
         label_47->setText(QCoreApplication::translate("MainWindow", "the cannula with insulin.", nullptr));
         fillCannulaBTN->setText(QCoreApplication::translate("MainWindow", "Next", nullptr));
