@@ -267,6 +267,7 @@ MainWindow::MainWindow(QWidget *parent)
     isCharging = false;
     battery = 0;
     ui->BatteryBar->setValue(battery);
+    ui->UnplugButton->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -327,6 +328,8 @@ void MainWindow::returnHomePage() {
 
 void MainWindow::chargeDevice() {
     isCharging = true;
+    ui->ChargeButton->setEnabled(false);
+    ui->UnplugButton->setEnabled(true);
     while(isCharging && battery < MAX_BATT) {
         battery++;
         
@@ -340,6 +343,8 @@ void MainWindow::chargeDevice() {
 
 void MainWindow::unplugCharger() {
     isCharging = false;
+    ui->ChargeButton->setEnabled(true);
+    ui->UnplugButton->setEnabled(false);
 }
 
 void MainWindow::batteryDrain() {
