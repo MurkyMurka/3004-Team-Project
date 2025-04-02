@@ -61,6 +61,18 @@ public:
     QPushButton *myPumpBTN;
     QPushButton *startStopBTN;
     QPushButton *loadInsulinCartBTN;
+    QPushButton *settingsDownButton;
+    QLabel *label_50;
+    QWidget *OptionsPage2;
+    QPushButton *settingsUpButton;
+    QPushButton *backToHome_4;
+    QPushButton *historyBTN;
+    QLabel *label_51;
+    QWidget *historyPage;
+    QPushButton *backToSettingsBTN;
+    QPushButton *historyBTN_3;
+    QPushButton *historyBTN_4;
+    QLabel *label_49;
     QWidget *loadPage;
     QPushButton *backToOptionsBTN_2;
     QLabel *label_34;
@@ -115,10 +127,10 @@ public:
     QLabel *label_5;
     QCheckBox *BluetoothCheckBox;
     QLabel *BTMess;
-    QGraphicsView *dataAndHistoryView;
+    QWidget *leaveBolusWarningPage;
     QLabel *label_12;
-    QPushButton *dataBTN;
-    QPushButton *historyBTN;
+    QLabel *label_52;
+    QDialogButtonBox *leaveBolusConfirm;
     QWidget *BolusPage;
     QPushButton *backToHome;
     QTextEdit *finalBolusUnits;
@@ -303,16 +315,16 @@ public:
         OptionsPage->setObjectName(QString::fromUtf8("OptionsPage"));
         SettingsButton = new QPushButton(OptionsPage);
         SettingsButton->setObjectName(QString::fromUtf8("SettingsButton"));
-        SettingsButton->setGeometry(QRect(10, 170, 551, 101));
+        SettingsButton->setGeometry(QRect(10, 170, 501, 101));
         backToHome_2 = new QPushButton(OptionsPage);
         backToHome_2->setObjectName(QString::fromUtf8("backToHome_2"));
         backToHome_2->setGeometry(QRect(10, 10, 81, 41));
         myPumpBTN = new QPushButton(OptionsPage);
         myPumpBTN->setObjectName(QString::fromUtf8("myPumpBTN"));
-        myPumpBTN->setGeometry(QRect(10, 280, 551, 101));
+        myPumpBTN->setGeometry(QRect(10, 280, 501, 101));
         startStopBTN = new QPushButton(OptionsPage);
         startStopBTN->setObjectName(QString::fromUtf8("startStopBTN"));
-        startStopBTN->setGeometry(QRect(10, 60, 551, 101));
+        startStopBTN->setGeometry(QRect(10, 60, 501, 101));
         QFont font;
         font.setFamily(QString::fromUtf8("DejaVu Sans"));
         font.setBold(true);
@@ -321,8 +333,59 @@ public:
         startStopBTN->setStyleSheet(QString::fromUtf8("color: red;"));
         loadInsulinCartBTN = new QPushButton(OptionsPage);
         loadInsulinCartBTN->setObjectName(QString::fromUtf8("loadInsulinCartBTN"));
-        loadInsulinCartBTN->setGeometry(QRect(10, 390, 551, 101));
+        loadInsulinCartBTN->setGeometry(QRect(10, 390, 501, 101));
+        settingsDownButton = new QPushButton(OptionsPage);
+        settingsDownButton->setObjectName(QString::fromUtf8("settingsDownButton"));
+        settingsDownButton->setGeometry(QRect(520, 460, 41, 31));
+        QIcon icon;
+        QString iconThemeName = QString::fromUtf8("DownArrow");
+        if (QIcon::hasThemeIcon(iconThemeName)) {
+            icon = QIcon::fromTheme(iconThemeName);
+        } else {
+            icon.addFile(QString::fromUtf8("."), QSize(), QIcon::Normal, QIcon::Off);
+        }
+        settingsDownButton->setIcon(icon);
+        label_50 = new QLabel(OptionsPage);
+        label_50->setObjectName(QString::fromUtf8("label_50"));
+        label_50->setGeometry(QRect(260, 20, 81, 31));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("DejaVu Sans"));
+        font1.setPointSize(14);
+        label_50->setFont(font1);
         stackedWidget->addWidget(OptionsPage);
+        OptionsPage2 = new QWidget();
+        OptionsPage2->setObjectName(QString::fromUtf8("OptionsPage2"));
+        settingsUpButton = new QPushButton(OptionsPage2);
+        settingsUpButton->setObjectName(QString::fromUtf8("settingsUpButton"));
+        settingsUpButton->setGeometry(QRect(520, 460, 41, 31));
+        settingsUpButton->setIcon(icon);
+        backToHome_4 = new QPushButton(OptionsPage2);
+        backToHome_4->setObjectName(QString::fromUtf8("backToHome_4"));
+        backToHome_4->setGeometry(QRect(10, 10, 81, 41));
+        historyBTN = new QPushButton(OptionsPage2);
+        historyBTN->setObjectName(QString::fromUtf8("historyBTN"));
+        historyBTN->setGeometry(QRect(10, 60, 501, 101));
+        label_51 = new QLabel(OptionsPage2);
+        label_51->setObjectName(QString::fromUtf8("label_51"));
+        label_51->setGeometry(QRect(260, 20, 81, 31));
+        label_51->setFont(font1);
+        stackedWidget->addWidget(OptionsPage2);
+        historyPage = new QWidget();
+        historyPage->setObjectName(QString::fromUtf8("historyPage"));
+        backToSettingsBTN = new QPushButton(historyPage);
+        backToSettingsBTN->setObjectName(QString::fromUtf8("backToSettingsBTN"));
+        backToSettingsBTN->setGeometry(QRect(10, 10, 81, 41));
+        historyBTN_3 = new QPushButton(historyPage);
+        historyBTN_3->setObjectName(QString::fromUtf8("historyBTN_3"));
+        historyBTN_3->setGeometry(QRect(10, 60, 551, 101));
+        historyBTN_4 = new QPushButton(historyPage);
+        historyBTN_4->setObjectName(QString::fromUtf8("historyBTN_4"));
+        historyBTN_4->setGeometry(QRect(10, 170, 551, 101));
+        label_49 = new QLabel(historyPage);
+        label_49->setObjectName(QString::fromUtf8("label_49"));
+        label_49->setGeometry(QRect(260, 20, 71, 31));
+        label_49->setFont(font1);
+        stackedWidget->addWidget(historyPage);
         loadPage = new QWidget();
         loadPage->setObjectName(QString::fromUtf8("loadPage"));
         backToOptionsBTN_2 = new QPushButton(loadPage);
@@ -331,9 +394,6 @@ public:
         label_34 = new QLabel(loadPage);
         label_34->setObjectName(QString::fromUtf8("label_34"));
         label_34->setGeometry(QRect(270, 20, 51, 31));
-        QFont font1;
-        font1.setFamily(QString::fromUtf8("DejaVu Sans"));
-        font1.setPointSize(14);
         label_34->setFont(font1);
         changeCartBTN = new QPushButton(loadPage);
         changeCartBTN->setObjectName(QString::fromUtf8("changeCartBTN"));
@@ -469,13 +529,6 @@ public:
         DownButton = new QPushButton(SettingsPage_1);
         DownButton->setObjectName(QString::fromUtf8("DownButton"));
         DownButton->setGeometry(QRect(510, 460, 41, 31));
-        QIcon icon;
-        QString iconThemeName = QString::fromUtf8("DownArrow");
-        if (QIcon::hasThemeIcon(iconThemeName)) {
-            icon = QIcon::fromTheme(iconThemeName);
-        } else {
-            icon.addFile(QString::fromUtf8("."), QSize(), QIcon::Normal, QIcon::Off);
-        }
         DownButton->setIcon(icon);
         dateTimeEditor = new QDateTimeEdit(SettingsPage_1);
         dateTimeEditor->setObjectName(QString::fromUtf8("dateTimeEditor"));
@@ -503,19 +556,20 @@ public:
         BTMess = new QLabel(SettingsPage_2);
         BTMess->setObjectName(QString::fromUtf8("BTMess"));
         BTMess->setGeometry(QRect(140, 150, 211, 17));
-        dataAndHistoryView = new QGraphicsView(SettingsPage_2);
-        dataAndHistoryView->setObjectName(QString::fromUtf8("dataAndHistoryView"));
-        dataAndHistoryView->setGeometry(QRect(10, 250, 481, 231));
-        label_12 = new QLabel(SettingsPage_2);
-        label_12->setObjectName(QString::fromUtf8("label_12"));
-        label_12->setGeometry(QRect(30, 270, 131, 17));
-        dataBTN = new QPushButton(SettingsPage_2);
-        dataBTN->setObjectName(QString::fromUtf8("dataBTN"));
-        dataBTN->setGeometry(QRect(50, 310, 401, 61));
-        historyBTN = new QPushButton(SettingsPage_2);
-        historyBTN->setObjectName(QString::fromUtf8("historyBTN"));
-        historyBTN->setGeometry(QRect(50, 390, 401, 61));
         stackedWidget->addWidget(SettingsPage_2);
+        leaveBolusWarningPage = new QWidget();
+        leaveBolusWarningPage->setObjectName(QString::fromUtf8("leaveBolusWarningPage"));
+        label_12 = new QLabel(leaveBolusWarningPage);
+        label_12->setObjectName(QString::fromUtf8("label_12"));
+        label_12->setGeometry(QRect(80, 90, 421, 91));
+        label_52 = new QLabel(leaveBolusWarningPage);
+        label_52->setObjectName(QString::fromUtf8("label_52"));
+        label_52->setGeometry(QRect(170, 210, 241, 41));
+        leaveBolusConfirm = new QDialogButtonBox(leaveBolusWarningPage);
+        leaveBolusConfirm->setObjectName(QString::fromUtf8("leaveBolusConfirm"));
+        leaveBolusConfirm->setGeometry(QRect(210, 250, 166, 25));
+        leaveBolusConfirm->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        stackedWidget->addWidget(leaveBolusWarningPage);
         BolusPage = new QWidget();
         BolusPage->setObjectName(QString::fromUtf8("BolusPage"));
         backToHome = new QPushButton(BolusPage);
@@ -947,11 +1001,7 @@ public:
 
         retranslateUi(MainWindow);
 
-<<<<<<< HEAD
-        stackedWidget->setCurrentIndex(10);
-=======
-        stackedWidget->setCurrentIndex(2);
->>>>>>> caf3eb9ea9ecd0c30c3827502ae1b1264c3519d9
+        stackedWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -995,6 +1045,16 @@ public:
         myPumpBTN->setText(QCoreApplication::translate("MainWindow", "My Pump", nullptr));
         startStopBTN->setText(QCoreApplication::translate("MainWindow", "START INSULIN", nullptr));
         loadInsulinCartBTN->setText(QCoreApplication::translate("MainWindow", "Load Insulin Cartirage", nullptr));
+        settingsDownButton->setText(QCoreApplication::translate("MainWindow", "\\/", nullptr));
+        label_50->setText(QCoreApplication::translate("MainWindow", "Options", nullptr));
+        settingsUpButton->setText(QCoreApplication::translate("MainWindow", "/\\", nullptr));
+        backToHome_4->setText(QCoreApplication::translate("MainWindow", "<--", nullptr));
+        historyBTN->setText(QCoreApplication::translate("MainWindow", "History", nullptr));
+        label_51->setText(QCoreApplication::translate("MainWindow", "Options", nullptr));
+        backToSettingsBTN->setText(QCoreApplication::translate("MainWindow", "<--", nullptr));
+        historyBTN_3->setText(QCoreApplication::translate("MainWindow", "Pump History", nullptr));
+        historyBTN_4->setText(QCoreApplication::translate("MainWindow", "CGM History", nullptr));
+        label_49->setText(QCoreApplication::translate("MainWindow", "History", nullptr));
         backToOptionsBTN_2->setText(QCoreApplication::translate("MainWindow", "<--", nullptr));
         label_34->setText(QCoreApplication::translate("MainWindow", "Load", nullptr));
         changeCartBTN->setText(QCoreApplication::translate("MainWindow", "Change Cartridge", nullptr));
@@ -1029,9 +1089,8 @@ public:
         label_5->setText(QCoreApplication::translate("MainWindow", "Bluetooth", nullptr));
         BluetoothCheckBox->setText(QCoreApplication::translate("MainWindow", "Bluetooth", nullptr));
         BTMess->setText(QString());
-        label_12->setText(QCoreApplication::translate("MainWindow", "Data & History View", nullptr));
-        dataBTN->setText(QCoreApplication::translate("MainWindow", "Data", nullptr));
-        historyBTN->setText(QCoreApplication::translate("MainWindow", "History", nullptr));
+        label_12->setText(QCoreApplication::translate("MainWindow", "You are in the middle of a process that impacts insulin delivery.", nullptr));
+        label_52->setText(QCoreApplication::translate("MainWindow", "Would you still like to return home?", nullptr));
         backToHome->setText(QCoreApplication::translate("MainWindow", "<--", nullptr));
         finalBolusUnits->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"

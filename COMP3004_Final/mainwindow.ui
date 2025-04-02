@@ -24,11 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-<<<<<<< HEAD
-     <number>10</number>
-=======
-     <number>2</number>
->>>>>>> caf3eb9ea9ecd0c30c3827502ae1b1264c3519d9
+     <number>4</number>
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QLabel" name="BolusIcon">
@@ -235,7 +231,7 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>10</x>
         <y>170</y>
-        <width>551</width>
+        <width>501</width>
         <height>101</height>
        </rect>
       </property>
@@ -261,7 +257,7 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>10</x>
         <y>280</y>
-        <width>551</width>
+        <width>501</width>
         <height>101</height>
        </rect>
       </property>
@@ -274,7 +270,7 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>10</x>
         <y>60</y>
-        <width>551</width>
+        <width>501</width>
         <height>101</height>
        </rect>
       </property>
@@ -297,12 +293,172 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>10</x>
         <y>390</y>
-        <width>551</width>
+        <width>501</width>
         <height>101</height>
        </rect>
       </property>
       <property name="text">
        <string>Load Insulin Cartirage</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="settingsDownButton">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>460</y>
+        <width>41</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>\/</string>
+      </property>
+      <property name="icon">
+       <iconset theme="DownArrow">
+        <normaloff>.</normaloff>.</iconset>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_50">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>20</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Options</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="OptionsPage2">
+     <widget class="QPushButton" name="settingsUpButton">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>460</y>
+        <width>41</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>/\</string>
+      </property>
+      <property name="icon">
+       <iconset theme="DownArrow">
+        <normaloff>.</normaloff>.</iconset>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="backToHome_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;--</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="historyBTN">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>501</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>History</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_51">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>20</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Options</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="historyPage">
+     <widget class="QPushButton" name="backToSettingsBTN">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;--</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="historyBTN_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>551</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pump History</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="historyBTN_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>170</y>
+        <width>551</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CGM History</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_49">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>20</y>
+        <width>71</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>History</string>
       </property>
      </widget>
     </widget>
@@ -899,53 +1055,45 @@ p, li { white-space: pre-wrap; }
        <string/>
       </property>
      </widget>
-     <widget class="QGraphicsView" name="dataAndHistoryView">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>250</y>
-        <width>481</width>
-        <height>231</height>
-       </rect>
-      </property>
-     </widget>
+    </widget>
+    <widget class="QWidget" name="leaveBolusWarningPage">
      <widget class="QLabel" name="label_12">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>270</y>
-        <width>131</width>
-        <height>17</height>
+        <x>80</x>
+        <y>90</y>
+        <width>421</width>
+        <height>91</height>
        </rect>
       </property>
       <property name="text">
-       <string>Data &amp; History View</string>
+       <string>You are in the middle of a process that impacts insulin delivery.</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="dataBTN">
+     <widget class="QLabel" name="label_52">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>310</y>
-        <width>401</width>
-        <height>61</height>
+        <x>170</x>
+        <y>210</y>
+        <width>241</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>Data</string>
+       <string>Would you still like to return home?</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="historyBTN">
+     <widget class="QDialogButtonBox" name="leaveBolusConfirm">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>390</y>
-        <width>401</width>
-        <height>61</height>
+        <x>210</x>
+        <y>250</y>
+        <width>166</width>
+        <height>25</height>
        </rect>
       </property>
-      <property name="text">
-       <string>History</string>
+      <property name="standardButtons">
+       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
       </property>
      </widget>
     </widget>

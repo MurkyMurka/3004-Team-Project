@@ -54,11 +54,13 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../COMP3004_Final/configdata.cpp \
 		../COMP3004_Final/main.cpp \
-		../COMP3004_Final/mainwindow.cpp moc_configdata.cpp \
+		../COMP3004_Final/mainwindow.cpp \
+		../COMP3004_Final/UserProfile.cpp moc_configdata.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = configdata.o \
 		main.o \
 		mainwindow.o \
+		UserProfile.o \
 		moc_configdata.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -118,6 +120,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		../COMP3004_Final/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -139,9 +142,11 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../COMP3004_Final/COMP3004_Final.pro ../COMP3004_Final/configdata.h \
-		../COMP3004_Final/mainwindow.h ../COMP3004_Final/configdata.cpp \
+		../COMP3004_Final/mainwindow.h \
+		../COMP3004_Final/UserProfile.h ../COMP3004_Final/configdata.cpp \
 		../COMP3004_Final/main.cpp \
-		../COMP3004_Final/mainwindow.cpp
+		../COMP3004_Final/mainwindow.cpp \
+		../COMP3004_Final/UserProfile.cpp
 QMAKE_TARGET  = COMP3004_Final
 DESTDIR       = 
 TARGET        = COMP3004_Final
@@ -210,6 +215,7 @@ Makefile: ../COMP3004_Final/COMP3004_Final.pro /usr/lib/x86_64-linux-gnu/qt5/mks
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -289,6 +295,7 @@ Makefile: ../COMP3004_Final/COMP3004_Final.pro /usr/lib/x86_64-linux-gnu/qt5/mks
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -325,8 +332,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../COMP3004_Final/configdata.h ../COMP3004_Final/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../COMP3004_Final/configdata.cpp ../COMP3004_Final/main.cpp ../COMP3004_Final/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../COMP3004_Final/configdata.h ../COMP3004_Final/mainwindow.h ../COMP3004_Final/UserProfile.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../COMP3004_Final/configdata.cpp ../COMP3004_Final/main.cpp ../COMP3004_Final/mainwindow.cpp ../COMP3004_Final/UserProfile.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../COMP3004_Final/mainwindow.ui $(DISTDIR)/
 
 
@@ -405,6 +412,9 @@ mainwindow.o: ../COMP3004_Final/mainwindow.cpp ../COMP3004_Final/mainwindow.h \
 		../COMP3004_Final/configdata.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../COMP3004_Final/mainwindow.cpp
+
+UserProfile.o: ../COMP3004_Final/UserProfile.cpp ../COMP3004_Final/UserProfile.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o UserProfile.o ../COMP3004_Final/UserProfile.cpp
 
 moc_configdata.o: moc_configdata.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_configdata.o moc_configdata.cpp
