@@ -327,7 +327,7 @@ MainWindow::MainWindow(QWidget *parent)
             ui->addBgBTN->setText("Add BG");
         }else{
             leavingBolus = false;
-            ui->stackedWidget->setCurrentWidget(ui->initialdedPage);
+            ui->stackedWidget->setCurrentWidget(ui->initiatedPage);
             ui->carbGramsSpinBox->setValue(0);
             ui->bgSpinBox->setValue(0);
             ui->enterCarbsBTN->setText("0");
