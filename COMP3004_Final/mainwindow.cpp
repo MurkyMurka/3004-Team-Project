@@ -38,10 +38,17 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(ui->BolusButton, &QPushButton::clicked, this, [this]() {
+        leavingBolus = true;
         ui->stackedWidget->setCurrentWidget(ui->BolusPage);
     });
 
     connect(ui->backToHome, &QPushButton::clicked, this, [this]() {
+        ui->setMinSpinbox->setValue(0);
+        ui->setHourSpinbox->setValue(2);
+        ui->deliverNowSpinbox->setValue(50);
+        ui->bgSpinBox->setValue(0);
+        ui->carbGramsSpinBox->setValue(0);
+        leavingBolus = false;
         ui->stackedWidget->setCurrentWidget(ui->HomePage);
     });
 
@@ -154,6 +161,7 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(ui->cartStopConfirmBTN_2, &QDialogButtonBox::rejected, this, [=]() {
+        ui->TandemLogo->setEnabled(true);
         ui->stackedWidget->setCurrentWidget(ui->loadPage);
     });
 
@@ -162,6 +170,8 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(ui->cartStopConfirmBTN, &QDialogButtonBox::accepted, this, [=]() {
+        //HERE===================
+        ui->TandemLogo->setEnabled(false);
         ui->stackedWidget->setCurrentWidget(ui->disconnectPage);
     });
 
@@ -186,20 +196,94 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(ui->loadResumeBTN, &QDialogButtonBox::accepted, this, [=]() {
+        ui->TandemLogo->setEnabled(true);
         ui->stackedWidget->setCurrentWidget(ui->HomePage);
         ui->startStopBTN->setText("STOP INSULIN");
 
     });
 
     connect(ui->loadResumeBTN, &QDialogButtonBox::rejected, this, [=]() {
+        ui->TandemLogo->setEnabled(true);
         ui->stackedWidget->setCurrentWidget(ui->HomePage);
         ui->startStopBTN->setText("START INSULIN");
 
     });
 
     connect(ui->loadResumeBTN, &QDialogButtonBox::rejected, this, [=]() {
+        ui->TandemLogo->setEnabled(true);
         ui->stackedWidget->setCurrentWidget(ui->HomePage);
 
+    });
+
+    connect(ui->finalConfirmBolusButtonBox, &QDialogButtonBox::rejected, this, [=]() {
+        ui->stackedWidget->setCurrentWidget(ui->BolusPage);
+
+    });
+
+    connect(ui->backToHome_4, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->HomePage);
+    });
+
+    connect(ui->settingsDownButton, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->OptionsPage2);
+    });
+
+    connect(ui->settingsUpButton, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->OptionsPage);
+    });
+
+    connect(ui->backToSettingsBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->OptionsPage2);
+    });
+
+    connect(ui->historyBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->historyPage);
+    });
+
+    connect(ui->leaveBolusConfirm, &QDialogButtonBox::accepted, this, [=]() {
+
+        ui->setMinSpinbox->setValue(0);
+        ui->setHourSpinbox->setValue(2);
+        ui->deliverNowSpinbox->setValue(50);
+        ui->bgSpinBox->setValue(0);
+        ui->carbGramsSpinBox->setValue(0);
+        ui->stackedWidget->setCurrentWidget(ui->HomePage);
+    });
+
+    connect(ui->leaveBolusConfirm, &QDialogButtonBox::rejected, this, [=]() {
+        ui->stackedWidget->setCurrentIndex(savedIndexPage);
+    });
+
+    connect(ui->backToHistoryBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->historyPage);
+    });
+
+    connect(ui->backToHistoryBTN_2, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->historyPage);
+    });
+
+    connect(ui->pumpHistoryBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->pumpHistoryPage);
+    });
+
+    connect(ui->cgmHistoryBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->cgmHistoryPage);
+    });
+
+    connect(ui->backToHome_5, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->HomePage);
+    });
+
+    connect(ui->currentStatus, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->currentStatusPage);
+    });
+
+    connect(ui->backToBolus, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->BolusPage);
+    });
+
+    connect(ui->viewCalcBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->deliverCalculationPage);
     });
 
     connect(ui->startStopBTN, &QPushButton::clicked, this, [this]() {
@@ -211,9 +295,6 @@ MainWindow::MainWindow(QWidget *parent)
            ui->startStopBTN->setText("START INSULIN");
         }
     });
-
-
-
 
     connect(ui->durationButtonBox, &QDialogButtonBox::accepted, this, [=]() {
         ui->stackedWidget->setCurrentWidget(ui->deliverBolusPage);
@@ -233,22 +314,31 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(ui->finalConfirmBolusButtonBox, &QDialogButtonBox::accepted, this, [=]() {
-        ui->stackedWidget->setCurrentWidget(ui->intiatedPage);
+        leavingBolus = false;
+        ui->stackedWidget->setCurrentWidget(ui->intiatedExtendedPage);
     });
 
     connect(ui->confirmBolBTN, &QDialogButtonBox::accepted, this, [=]() {
-        ui->stackedWidget->setCurrentWidget(ui->finalBolusConfirmPage);
-        ui->carbGramsSpinBox->setValue(0);
-        ui->bgSpinBox->setValue(0);
-        ui->enterCarbsBTN->setText("0");
-        ui->addBgBTN->setText("Add BG");
-    });
+        if(ui->ExtensionCheckBox->isChecked()){
+            ui->stackedWidget->setCurrentWidget(ui->finalBolusConfirmPage);
+            ui->carbGramsSpinBox->setValue(0);
+            ui->bgSpinBox->setValue(0);
+            ui->enterCarbsBTN->setText("0");
+            ui->addBgBTN->setText("Add BG");
+        }else{
+            leavingBolus = false;
+            ui->stackedWidget->setCurrentWidget(ui->initiatedPage);
+            ui->carbGramsSpinBox->setValue(0);
+            ui->bgSpinBox->setValue(0);
+            ui->enterCarbsBTN->setText("0");
+            ui->addBgBTN->setText("Add BG");
+        }
 
+    });
 
     connect(ui->buttonBox, &QDialogButtonBox::accepted, this, [=]() {
         ui->stackedWidget->setCurrentWidget(ui->deliverBolusPage);
     });
-
 
     clock = new QTimer(this);
     connect(clock, &QTimer::timeout, this, &MainWindow::setMainClock);
@@ -314,8 +404,12 @@ bool MainWindow::checkingPIN() {
 }
 
 void MainWindow::returnHomePage() {
-    if(isOn) {
+
+    if(isOn && leavingBolus == false) {
         ui->stackedWidget->setCurrentWidget(ui->HomePage);
+    }else if(isOn && leavingBolus == true){
+        savedIndexPage = ui->stackedWidget->currentIndex();
+        ui->stackedWidget->setCurrentWidget(ui->leaveBolusWarningPage);
     }
 }
 
