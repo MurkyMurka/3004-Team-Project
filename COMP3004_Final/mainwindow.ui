@@ -24,7 +24,11 @@
      </rect>
     </property>
     <property name="currentIndex">
+<<<<<<< HEAD
      <number>16</number>
+=======
+     <number>10</number>
+>>>>>>> 5849282993aa8c880bde0473100b51056eb6bcde
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QProgressBar" name="BolusBar">
