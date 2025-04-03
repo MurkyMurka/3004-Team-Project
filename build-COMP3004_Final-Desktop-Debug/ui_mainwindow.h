@@ -1194,7 +1194,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(31);
+        stackedWidget->setCurrentIndex(24);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
