@@ -308,7 +308,7 @@ public:
         BolusBar = new QProgressBar(HomePage);
         BolusBar->setObjectName(QString::fromUtf8("BolusBar"));
         BolusBar->setGeometry(QRect(450, 20, 111, 31));
-        BolusBar->setValue(24);
+        BolusBar->setValue(100);
         OptionsButton = new QPushButton(HomePage);
         OptionsButton->setObjectName(QString::fromUtf8("OptionsButton"));
         OptionsButton->setGeometry(QRect(10, 390, 271, 101));
@@ -1194,7 +1194,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(24);
+        stackedWidget->setCurrentIndex(16);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
