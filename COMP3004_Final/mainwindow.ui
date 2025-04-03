@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>33</number>
+     <number>31</number>
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QProgressBar" name="BolusBar">
@@ -2799,7 +2799,7 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="intiatedPage">
+    <widget class="QWidget" name="intiatedExtendedPage">
      <widget class="QLabel" name="label_75">
       <property name="geometry">
        <rect>
@@ -2836,6 +2836,46 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="text">
        <string>0.0 u Now + 0.0 u Later</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="initialdedPage">
+     <widget class="QLabel" name="label_149">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>90</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>BOLUS INITIATED</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="finalBolusUnitsLabel_3">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>180</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>0.0 u</string>
       </property>
      </widget>
     </widget>

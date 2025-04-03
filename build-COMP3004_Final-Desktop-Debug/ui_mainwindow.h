@@ -262,9 +262,12 @@ public:
     QTextEdit *bolusLaterLabel;
     QTextEdit *finalTimeDurationLabel;
     QDialogButtonBox *finalConfirmBolusButtonBox;
-    QWidget *intiatedPage;
+    QWidget *intiatedExtendedPage;
     QLabel *label_75;
     QLabel *finalBolusUnitsLabel;
+    QWidget *initialdedPage;
+    QLabel *label_149;
+    QLabel *finalBolusUnitsLabel_3;
     QWidget *lowChargeWarningPage;
     QLabel *label_10;
     QLabel *label_11;
@@ -1062,17 +1065,28 @@ public:
         finalConfirmBolusButtonBox->setGeometry(QRect(190, 280, 166, 25));
         finalConfirmBolusButtonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         stackedWidget->addWidget(finalBolusConfirmPage);
-        intiatedPage = new QWidget();
-        intiatedPage->setObjectName(QString::fromUtf8("intiatedPage"));
-        label_75 = new QLabel(intiatedPage);
+        intiatedExtendedPage = new QWidget();
+        intiatedExtendedPage->setObjectName(QString::fromUtf8("intiatedExtendedPage"));
+        label_75 = new QLabel(intiatedExtendedPage);
         label_75->setObjectName(QString::fromUtf8("label_75"));
         label_75->setGeometry(QRect(210, 90, 161, 31));
         label_75->setFont(font);
-        finalBolusUnitsLabel = new QLabel(intiatedPage);
+        finalBolusUnitsLabel = new QLabel(intiatedExtendedPage);
         finalBolusUnitsLabel->setObjectName(QString::fromUtf8("finalBolusUnitsLabel"));
         finalBolusUnitsLabel->setGeometry(QRect(170, 180, 251, 41));
         finalBolusUnitsLabel->setFont(font);
-        stackedWidget->addWidget(intiatedPage);
+        stackedWidget->addWidget(intiatedExtendedPage);
+        initialdedPage = new QWidget();
+        initialdedPage->setObjectName(QString::fromUtf8("initialdedPage"));
+        label_149 = new QLabel(initialdedPage);
+        label_149->setObjectName(QString::fromUtf8("label_149"));
+        label_149->setGeometry(QRect(210, 90, 161, 31));
+        label_149->setFont(font);
+        finalBolusUnitsLabel_3 = new QLabel(initialdedPage);
+        finalBolusUnitsLabel_3->setObjectName(QString::fromUtf8("finalBolusUnitsLabel_3"));
+        finalBolusUnitsLabel_3->setGeometry(QRect(270, 180, 51, 41));
+        finalBolusUnitsLabel_3->setFont(font);
+        stackedWidget->addWidget(initialdedPage);
         lowChargeWarningPage = new QWidget();
         lowChargeWarningPage->setObjectName(QString::fromUtf8("lowChargeWarningPage"));
         label_10 = new QLabel(lowChargeWarningPage);
@@ -1180,7 +1194,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(33);
+        stackedWidget->setCurrentIndex(31);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1390,6 +1404,8 @@ public:
         label_74->setText(QCoreApplication::translate("MainWindow", "Duration", nullptr));
         label_75->setText(QCoreApplication::translate("MainWindow", "BOLUS INITIATED", nullptr));
         finalBolusUnitsLabel->setText(QCoreApplication::translate("MainWindow", "0.0 u Now + 0.0 u Later", nullptr));
+        label_149->setText(QCoreApplication::translate("MainWindow", "BOLUS INITIATED", nullptr));
+        finalBolusUnitsLabel_3->setText(QCoreApplication::translate("MainWindow", "0.0 u", nullptr));
         label_10->setText(QCoreApplication::translate("MainWindow", "WARNING, BATTERY LEVEL LOW", nullptr));
         label_11->setText(QCoreApplication::translate("MainWindow", "PLEASE START CHARGING DEVICE", nullptr));
         personalProfilesBTN->setText(QCoreApplication::translate("MainWindow", "Personal Profiles", nullptr));

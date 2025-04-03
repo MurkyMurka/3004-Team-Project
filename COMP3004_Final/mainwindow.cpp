@@ -240,7 +240,6 @@ MainWindow::MainWindow(QWidget *parent)
         ui->stackedWidget->setCurrentWidget(ui->historyPage);
     });
 
-    //change and remove all values in bolus
     connect(ui->leaveBolusConfirm, &QDialogButtonBox::accepted, this, [=]() {
 
         ui->setMinSpinbox->setValue(0);
@@ -287,7 +286,6 @@ MainWindow::MainWindow(QWidget *parent)
         ui->stackedWidget->setCurrentWidget(ui->deliverCalculationPage);
     });
 
-
     connect(ui->startStopBTN, &QPushButton::clicked, this, [this]() {
         QString text = "START INSULIN";
 
@@ -297,9 +295,6 @@ MainWindow::MainWindow(QWidget *parent)
            ui->startStopBTN->setText("START INSULIN");
         }
     });
-
-
-
 
     connect(ui->durationButtonBox, &QDialogButtonBox::accepted, this, [=]() {
         ui->stackedWidget->setCurrentWidget(ui->deliverBolusPage);
@@ -320,22 +315,30 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->finalConfirmBolusButtonBox, &QDialogButtonBox::accepted, this, [=]() {
         leavingBolus = false;
-        ui->stackedWidget->setCurrentWidget(ui->intiatedPage);
+        ui->stackedWidget->setCurrentWidget(ui->intiatedExtendedPage);
     });
 
     connect(ui->confirmBolBTN, &QDialogButtonBox::accepted, this, [=]() {
-        ui->stackedWidget->setCurrentWidget(ui->finalBolusConfirmPage);
-        ui->carbGramsSpinBox->setValue(0);
-        ui->bgSpinBox->setValue(0);
-        ui->enterCarbsBTN->setText("0");
-        ui->addBgBTN->setText("Add BG");
-    });
+        if(ui->ExtensionCheckBox->isChecked()){
+            ui->stackedWidget->setCurrentWidget(ui->finalBolusConfirmPage);
+            ui->carbGramsSpinBox->setValue(0);
+            ui->bgSpinBox->setValue(0);
+            ui->enterCarbsBTN->setText("0");
+            ui->addBgBTN->setText("Add BG");
+        }else{
+            leavingBolus = false;
+            ui->stackedWidget->setCurrentWidget(ui->initialdedPage);
+            ui->carbGramsSpinBox->setValue(0);
+            ui->bgSpinBox->setValue(0);
+            ui->enterCarbsBTN->setText("0");
+            ui->addBgBTN->setText("Add BG");
+        }
 
+    });
 
     connect(ui->buttonBox, &QDialogButtonBox::accepted, this, [=]() {
         ui->stackedWidget->setCurrentWidget(ui->deliverBolusPage);
     });
-
 
     clock = new QTimer(this);
     connect(clock, &QTimer::timeout, this, &MainWindow::setMainClock);
