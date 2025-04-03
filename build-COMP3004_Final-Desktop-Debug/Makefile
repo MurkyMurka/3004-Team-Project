@@ -52,12 +52,14 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../COMP3004_Final/configdata.cpp \
+SOURCES       = ../COMP3004_Final/BolusCalc.cpp \
+		../COMP3004_Final/configdata.cpp \
 		../COMP3004_Final/main.cpp \
 		../COMP3004_Final/mainwindow.cpp \
 		../COMP3004_Final/UserProfile.cpp moc_configdata.cpp \
 		moc_mainwindow.cpp
-OBJECTS       = configdata.o \
+OBJECTS       = BolusCalc.o \
+		configdata.o \
 		main.o \
 		mainwindow.o \
 		UserProfile.o \
@@ -141,9 +143,11 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../COMP3004_Final/COMP3004_Final.pro ../COMP3004_Final/configdata.h \
+		../COMP3004_Final/COMP3004_Final.pro ../COMP3004_Final/BolusCalc.h \
+		../COMP3004_Final/configdata.h \
 		../COMP3004_Final/mainwindow.h \
-		../COMP3004_Final/UserProfile.h ../COMP3004_Final/configdata.cpp \
+		../COMP3004_Final/UserProfile.h ../COMP3004_Final/BolusCalc.cpp \
+		../COMP3004_Final/configdata.cpp \
 		../COMP3004_Final/main.cpp \
 		../COMP3004_Final/mainwindow.cpp \
 		../COMP3004_Final/UserProfile.cpp
@@ -332,8 +336,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../COMP3004_Final/configdata.h ../COMP3004_Final/mainwindow.h ../COMP3004_Final/UserProfile.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../COMP3004_Final/configdata.cpp ../COMP3004_Final/main.cpp ../COMP3004_Final/mainwindow.cpp ../COMP3004_Final/UserProfile.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../COMP3004_Final/BolusCalc.h ../COMP3004_Final/configdata.h ../COMP3004_Final/mainwindow.h ../COMP3004_Final/UserProfile.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../COMP3004_Final/BolusCalc.cpp ../COMP3004_Final/configdata.cpp ../COMP3004_Final/main.cpp ../COMP3004_Final/mainwindow.cpp ../COMP3004_Final/UserProfile.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../COMP3004_Final/mainwindow.ui $(DISTDIR)/
 
 
@@ -400,6 +404,9 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+BolusCalc.o: ../COMP3004_Final/BolusCalc.cpp ../COMP3004_Final/BolusCalc.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BolusCalc.o ../COMP3004_Final/BolusCalc.cpp
 
 configdata.o: ../COMP3004_Final/configdata.cpp ../COMP3004_Final/configdata.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o configdata.o ../COMP3004_Final/configdata.cpp
