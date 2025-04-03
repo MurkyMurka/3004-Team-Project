@@ -10,6 +10,7 @@
 #include <QString>
 
 #include "configdata.h"
+#include "insulinpump.h"
 
 #define MAX_BATT 100
 
@@ -68,6 +69,7 @@ private:
     int profNum = 0;
     bool leavingBolus = false;
     int savedIndexPage;
+    InsulinPump *insulinPump;
 
     void batteryDrain();
     bool checkingPIN();

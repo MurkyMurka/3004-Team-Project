@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>31</number>
+     <number>13</number>
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QProgressBar" name="BolusBar">
@@ -814,7 +814,7 @@ p, li { white-space: pre-wrap; }
        <string>Insulin Cartridge Size:</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="insulinCartAmmountSpinBox">
+     <widget class="QSpinBox" name="insulinCartAmountSpinBox">
       <property name="geometry">
        <rect>
         <x>310</x>
@@ -915,8 +915,8 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="label_44">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>130</y>
+        <x>10</x>
+        <y>230</y>
         <width>521</width>
         <height>41</height>
        </rect>
@@ -928,8 +928,8 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="label_45">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>170</y>
+        <x>170</x>
+        <y>270</y>
         <width>181</width>
         <height>41</height>
        </rect>
@@ -941,14 +941,88 @@ p, li { white-space: pre-wrap; }
      <widget class="QPushButton" name="goToCannulaFillingBTN">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>230</y>
+        <x>220</x>
+        <y>330</y>
         <width>83</width>
         <height>25</height>
        </rect>
       </property>
       <property name="text">
        <string>DONE</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_62">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>80</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Fill Tubing:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="StartStopTubingBTN">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>80</y>
+        <width>83</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Start</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_63">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>130</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Tube Units:</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="TubingUnit">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>130</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_64">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>140</y>
+        <width>62</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>u</string>
       </property>
      </widget>
     </widget>

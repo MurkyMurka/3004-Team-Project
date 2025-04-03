@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     BolusCalc.cpp \
     configdata.cpp \
+    insulinpump.cpp \
     main.cpp \
     mainwindow.cpp \
     UserProfile.cpp
@@ -18,6 +19,7 @@ SOURCES += \
 HEADERS += \
     BolusCalc.h \
     configdata.h \
+    insulinpump.h \
     mainwindow.h \
     UserProfile.h
 

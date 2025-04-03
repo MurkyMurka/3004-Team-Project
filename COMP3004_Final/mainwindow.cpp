@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    insulinPump = new InsulinPump(ui->TubingUnit, ui->StartStopTubingBTN);
+
     connect(ui->OnButton, SIGNAL(clicked()), this, SLOT(turnOn()));
 
     connect(ui->OffButton, SIGNAL(clicked()), this, SLOT(turnOff()));
@@ -180,12 +182,15 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(ui->continueCartBTN, &QPushButton::clicked, this, [this]() {
+        insulinPump->refillCartridge(static_cast<float>(ui->insulinCartAmountSpinBox->value()));
         ui->stackedWidget->setCurrentWidget(ui->fillTubingPage);
     });
 
     connect(ui->fillTubingBTN_2, &QPushButton::clicked, this, [this]() {
         ui->stackedWidget->setCurrentWidget(ui->setupForCannula);
     });
+
+    connect(ui->StartStopTubingBTN, &QPushButton::clicked, insulinPump, &InsulinPump::startStopRefillTubing);
 
     connect(ui->goToCannulaFillingBTN, &QPushButton::clicked, this, [this]() {
         ui->stackedWidget->setCurrentWidget(ui->fillCannulaPage);
@@ -241,7 +246,7 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(ui->leaveBolusConfirm, &QDialogButtonBox::accepted, this, [=]() {
-
+        leavingBolus = false;
         ui->setMinSpinbox->setValue(0);
         ui->setHourSpinbox->setValue(2);
         ui->deliverNowSpinbox->setValue(50);
@@ -352,12 +357,14 @@ MainWindow::MainWindow(QWidget *parent)
     isCharging = false;
     battery = 0;
     ui->BatteryBar->setValue(battery);
+    ui->UnplugButton->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
     delete configData;
+    delete insulinPump;
 }
 
 void MainWindow::turnOff() {
@@ -415,6 +422,8 @@ void MainWindow::returnHomePage() {
 
 void MainWindow::chargeDevice() {
     isCharging = true;
+    ui->ChargeButton->setEnabled(false);
+    ui->UnplugButton->setEnabled(true);
     while(isCharging && battery < MAX_BATT) {
         battery++;
         
@@ -428,6 +437,8 @@ void MainWindow::chargeDevice() {
 
 void MainWindow::unplugCharger() {
     isCharging = false;
+    ui->ChargeButton->setEnabled(true);
+    ui->UnplugButton->setEnabled(false);
 }
 
 void MainWindow::batteryDrain() {
