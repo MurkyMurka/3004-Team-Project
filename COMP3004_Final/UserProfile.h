@@ -16,6 +16,7 @@ class userProfile {
         void setImmediate(float);
         bool isActive();
 
+
     private:
         bool isActiveBool;
         float icr;

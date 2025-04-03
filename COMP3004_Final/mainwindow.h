@@ -67,6 +67,8 @@ private:
     bool existPIN;
     QTimer *clock;
     int profNum = 0;
+    bool leavingBolus = false;
+    int savedIndexPage;
     InsulinPump *insulinPump;
 
     void batteryDrain();
