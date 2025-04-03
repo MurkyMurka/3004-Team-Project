@@ -12,12 +12,14 @@ SOURCES += \
     configdata.cpp \
     main.cpp \
     mainwindow.cpp \
-    UserProfile.cpp
+    UserProfile.cpp \
+    person.cpp
 
 HEADERS += \
     configdata.h \
     mainwindow.h \
-    UserProfile.h
+    UserProfile.h \
+    person.h
 
 FORMS += \
     mainwindow.ui
