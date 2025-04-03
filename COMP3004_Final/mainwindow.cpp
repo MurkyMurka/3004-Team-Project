@@ -233,7 +233,7 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(ui->finalConfirmBolusButtonBox, &QDialogButtonBox::accepted, this, [=]() {
-        ui->stackedWidget->setCurrentWidget(ui->intiatedPage);
+        ui->stackedWidget->setCurrentWidget(ui->initiatedPage);
     });
 
     connect(ui->confirmBolBTN, &QDialogButtonBox::accepted, this, [=]() {
