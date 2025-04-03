@@ -48,6 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
         ui->deliverNowSpinbox->setValue(50);
         ui->bgSpinBox->setValue(0);
         ui->carbGramsSpinBox->setValue(0);
+        leavingBolus = false;
         ui->stackedWidget->setCurrentWidget(ui->HomePage);
     });
 
@@ -254,7 +255,37 @@ MainWindow::MainWindow(QWidget *parent)
         ui->stackedWidget->setCurrentIndex(savedIndexPage);
     });
 
+    connect(ui->backToHistoryBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->historyPage);
+    });
 
+    connect(ui->backToHistoryBTN_2, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->historyPage);
+    });
+
+    connect(ui->pumpHistoryBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->pumpHistoryPage);
+    });
+
+    connect(ui->cgmHistoryBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->cgmHistoryPage);
+    });
+
+    connect(ui->backToHome_5, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->HomePage);
+    });
+
+    connect(ui->currentStatus, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->currentStatusPage);
+    });
+
+    connect(ui->backToBolus, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->BolusPage);
+    });
+
+    connect(ui->viewCalcBTN, &QPushButton::clicked, this, [this]() {
+        ui->stackedWidget->setCurrentWidget(ui->deliverCalculationPage);
+    });
 
 
     connect(ui->startStopBTN, &QPushButton::clicked, this, [this]() {
