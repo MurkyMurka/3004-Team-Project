@@ -246,7 +246,7 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     connect(ui->leaveBolusConfirm, &QDialogButtonBox::accepted, this, [=]() {
-
+        leavingBolus = false;
         ui->setMinSpinbox->setValue(0);
         ui->setHourSpinbox->setValue(2);
         ui->deliverNowSpinbox->setValue(50);
