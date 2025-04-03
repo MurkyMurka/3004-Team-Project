@@ -66,6 +66,8 @@ private:
     bool existPIN;
     QTimer *clock;
     int profNum = 0;
+    bool leavingBolus = false;
+    int savedIndexPage;
 
     void batteryDrain();
     bool checkingPIN();

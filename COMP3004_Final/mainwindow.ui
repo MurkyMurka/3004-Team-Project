@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>31</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="HomePage">
      <widget class="QProgressBar" name="BolusBar">
@@ -2839,7 +2839,7 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="initiatedPage">
+    <widget class="QWidget" name="initialdedPage">
      <widget class="QLabel" name="label_149">
       <property name="geometry">
        <rect>
