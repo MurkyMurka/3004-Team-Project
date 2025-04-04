@@ -1,1 +1,16 @@
-✓
+// Create a new profile page dynamically
+    QWidget *profilePage = new QWidget;
+    QVBoxLayout *layout = new QVBoxLayout(profilePage);
+    
+    QLabel *titleLabel = new QLabel("Profile: " + ui->profileNameLineEdit->text(), profilePage);
+    layout->addWidget(titleLabel);
+    
+    profilePage->setLayout(layout);
+
+    // Add the new page to stackedWidget
+    int index = ui->stackedWidget->addWidget(profilePage);
+    profilePages[profNum] = index; // Store index for reference
+
+    profNum++; // Increment profile count
+    ui->stackedWidget->setCurrentWidget(ui->personalProfilesPage);
+    ui->nameErrorLabel->setText("");
