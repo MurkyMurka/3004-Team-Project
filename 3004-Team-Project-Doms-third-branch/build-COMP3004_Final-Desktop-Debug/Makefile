@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_QML_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../COMP3004_Final -I. -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
+INCPATH       = -I../COMP3004_Final -I. -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
 QMAKE         = /usr/lib/qt5/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = COMP3004_Final1.0.0
 DISTDIR = /media/sf_COMP_3004/FINAL\ PROJECT/3004-Team-Project-Doms-third-branch/build-COMP3004_Final-Desktop-Debug/.tmp/COMP3004_Final1.0.0
 LINK          = g++
 LFLAGS        = 
-LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
+LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Charts.so /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -54,19 +54,23 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../COMP3004_Final/BolusCalc.cpp \
 		../COMP3004_Final/configdata.cpp \
+		../COMP3004_Final/graphmanager.cpp \
 		../COMP3004_Final/insulinpump.cpp \
 		../COMP3004_Final/main.cpp \
 		../COMP3004_Final/mainwindow.cpp \
 		../COMP3004_Final/UserProfile.cpp moc_configdata.cpp \
+		moc_graphmanager.cpp \
 		moc_insulinpump.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = BolusCalc.o \
 		configdata.o \
+		graphmanager.o \
 		insulinpump.o \
 		main.o \
 		mainwindow.o \
 		UserProfile.o \
 		moc_configdata.o \
+		moc_graphmanager.o \
 		moc_insulinpump.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -80,6 +84,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_charts.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core.pri \
@@ -149,10 +154,12 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../COMP3004_Final/COMP3004_Final.pro ../COMP3004_Final/BolusCalc.h \
 		../COMP3004_Final/configdata.h \
+		../COMP3004_Final/graphmanager.h \
 		../COMP3004_Final/insulinpump.h \
 		../COMP3004_Final/mainwindow.h \
 		../COMP3004_Final/UserProfile.h ../COMP3004_Final/BolusCalc.cpp \
 		../COMP3004_Final/configdata.cpp \
+		../COMP3004_Final/graphmanager.cpp \
 		../COMP3004_Final/insulinpump.cpp \
 		../COMP3004_Final/main.cpp \
 		../COMP3004_Final/mainwindow.cpp \
@@ -179,6 +186,7 @@ Makefile: ../COMP3004_Final/COMP3004_Final.pro /usr/lib/x86_64-linux-gnu/qt5/mks
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_charts.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core.pri \
@@ -259,6 +267,7 @@ Makefile: ../COMP3004_Final/COMP3004_Final.pro /usr/lib/x86_64-linux-gnu/qt5/mks
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_charts.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core.pri:
@@ -342,8 +351,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../COMP3004_Final/BolusCalc.h ../COMP3004_Final/configdata.h ../COMP3004_Final/insulinpump.h ../COMP3004_Final/mainwindow.h ../COMP3004_Final/UserProfile.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../COMP3004_Final/BolusCalc.cpp ../COMP3004_Final/configdata.cpp ../COMP3004_Final/insulinpump.cpp ../COMP3004_Final/main.cpp ../COMP3004_Final/mainwindow.cpp ../COMP3004_Final/UserProfile.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../COMP3004_Final/BolusCalc.h ../COMP3004_Final/configdata.h ../COMP3004_Final/graphmanager.h ../COMP3004_Final/insulinpump.h ../COMP3004_Final/mainwindow.h ../COMP3004_Final/UserProfile.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../COMP3004_Final/BolusCalc.cpp ../COMP3004_Final/configdata.cpp ../COMP3004_Final/graphmanager.cpp ../COMP3004_Final/insulinpump.cpp ../COMP3004_Final/main.cpp ../COMP3004_Final/mainwindow.cpp ../COMP3004_Final/UserProfile.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../COMP3004_Final/mainwindow.ui $(DISTDIR)/
 
 
@@ -376,26 +385,32 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_configdata.cpp moc_insulinpump.cpp moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_configdata.cpp moc_graphmanager.cpp moc_insulinpump.cpp moc_mainwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_configdata.cpp moc_insulinpump.cpp moc_mainwindow.cpp
+	-$(DEL_FILE) moc_configdata.cpp moc_graphmanager.cpp moc_insulinpump.cpp moc_mainwindow.cpp
 moc_configdata.cpp: ../COMP3004_Final/configdata.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include '/media/sf_COMP_3004/FINAL PROJECT/3004-Team-Project-Doms-third-branch/build-COMP3004_Final-Desktop-Debug/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/media/sf_COMP_3004/FINAL PROJECT/3004-Team-Project-Doms-third-branch/COMP3004_Final' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../COMP3004_Final/configdata.h -o moc_configdata.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include '/media/sf_COMP_3004/FINAL PROJECT/3004-Team-Project-Doms-third-branch/build-COMP3004_Final-Desktop-Debug/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/media/sf_COMP_3004/FINAL PROJECT/3004-Team-Project-Doms-third-branch/COMP3004_Final' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../COMP3004_Final/configdata.h -o moc_configdata.cpp
+
+moc_graphmanager.cpp: ../COMP3004_Final/graphmanager.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include '/media/sf_COMP_3004/FINAL PROJECT/3004-Team-Project-Doms-third-branch/build-COMP3004_Final-Desktop-Debug/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/media/sf_COMP_3004/FINAL PROJECT/3004-Team-Project-Doms-third-branch/COMP3004_Final' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../COMP3004_Final/graphmanager.h -o moc_graphmanager.cpp
 
 moc_insulinpump.cpp: ../COMP3004_Final/insulinpump.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include '/media/sf_COMP_3004/FINAL PROJECT/3004-Team-Project-Doms-third-branch/build-COMP3004_Final-Desktop-Debug/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/media/sf_COMP_3004/FINAL PROJECT/3004-Team-Project-Doms-third-branch/COMP3004_Final' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../COMP3004_Final/insulinpump.h -o moc_insulinpump.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include '/media/sf_COMP_3004/FINAL PROJECT/3004-Team-Project-Doms-third-branch/build-COMP3004_Final-Desktop-Debug/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/media/sf_COMP_3004/FINAL PROJECT/3004-Team-Project-Doms-third-branch/COMP3004_Final' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../COMP3004_Final/insulinpump.h -o moc_insulinpump.cpp
 
 moc_mainwindow.cpp: ../COMP3004_Final/mainwindow.h \
 		../COMP3004_Final/configdata.h \
 		../COMP3004_Final/insulinpump.h \
 		../COMP3004_Final/BolusCalc.h \
+		../COMP3004_Final/graphmanager.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include '/media/sf_COMP_3004/FINAL PROJECT/3004-Team-Project-Doms-third-branch/build-COMP3004_Final-Desktop-Debug/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/media/sf_COMP_3004/FINAL PROJECT/3004-Team-Project-Doms-third-branch/COMP3004_Final' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../COMP3004_Final/mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include '/media/sf_COMP_3004/FINAL PROJECT/3004-Team-Project-Doms-third-branch/build-COMP3004_Final-Desktop-Debug/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/media/sf_COMP_3004/FINAL PROJECT/3004-Team-Project-Doms-third-branch/COMP3004_Final' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../COMP3004_Final/mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -424,19 +439,24 @@ BolusCalc.o: ../COMP3004_Final/BolusCalc.cpp ../COMP3004_Final/BolusCalc.h
 configdata.o: ../COMP3004_Final/configdata.cpp ../COMP3004_Final/configdata.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o configdata.o ../COMP3004_Final/configdata.cpp
 
+graphmanager.o: ../COMP3004_Final/graphmanager.cpp ../COMP3004_Final/graphmanager.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o graphmanager.o ../COMP3004_Final/graphmanager.cpp
+
 insulinpump.o: ../COMP3004_Final/insulinpump.cpp ../COMP3004_Final/insulinpump.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o insulinpump.o ../COMP3004_Final/insulinpump.cpp
 
 main.o: ../COMP3004_Final/main.cpp ../COMP3004_Final/mainwindow.h \
 		../COMP3004_Final/configdata.h \
 		../COMP3004_Final/insulinpump.h \
-		../COMP3004_Final/BolusCalc.h
+		../COMP3004_Final/BolusCalc.h \
+		../COMP3004_Final/graphmanager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../COMP3004_Final/main.cpp
 
 mainwindow.o: ../COMP3004_Final/mainwindow.cpp ../COMP3004_Final/mainwindow.h \
 		../COMP3004_Final/configdata.h \
 		../COMP3004_Final/insulinpump.h \
 		../COMP3004_Final/BolusCalc.h \
+		../COMP3004_Final/graphmanager.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../COMP3004_Final/mainwindow.cpp
 
@@ -445,6 +465,9 @@ UserProfile.o: ../COMP3004_Final/UserProfile.cpp ../COMP3004_Final/UserProfile.h
 
 moc_configdata.o: moc_configdata.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_configdata.o moc_configdata.cpp
+
+moc_graphmanager.o: moc_graphmanager.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_graphmanager.o moc_graphmanager.cpp
 
 moc_insulinpump.o: moc_insulinpump.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_insulinpump.o moc_insulinpump.cpp

@@ -12,6 +12,7 @@
 #include "configdata.h"
 #include "insulinpump.h"
 #include "BolusCalc.h"
+#include "graphmanager.h"
 
 #define MAX_BATT 100
 
@@ -73,6 +74,9 @@ private:
     InsulinPump *insulinPump;
 
     BolusCalc bolusCalc;
+
+    GraphManager* graphManager;
+    QWidget* graphWidget;
 
     void batteryDrain();
     bool checkingPIN();

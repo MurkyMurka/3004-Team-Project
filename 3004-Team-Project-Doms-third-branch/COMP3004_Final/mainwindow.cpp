@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+
+
     insulinPump = new InsulinPump(ui->TubingUnit, ui->StartStopTubingBTN);
 
     connect(ui->OnButton, SIGNAL(clicked()), this, SLOT(turnOn()));
@@ -455,9 +457,6 @@ MainWindow::MainWindow(QWidget *parent)
             });
         }
 
-
-
-
     });
 
     connect(ui->buttonBox, &QDialogButtonBox::accepted, this, [=]() {
@@ -481,6 +480,48 @@ MainWindow::MainWindow(QWidget *parent)
     battery = 0;
     ui->BatteryBar->setValue(battery);
     ui->UnplugButton->setEnabled(false);
+
+    // Create a GraphManager to manage the graph
+        graphManager = new GraphManager(configData, this);
+
+        // Find the graphWidget in the centralWidget
+        graphWidget = centralWidget()->findChild<QWidget*>("graphWidget");
+
+        if (graphWidget) {
+            // If graphWidget has a layout, add the chartView
+            if (!graphWidget->layout()) {
+                // If graphWidget doesn't have a layout, create one (e.g., QVllBoxLayout)
+                QVBoxLayout *layout = new QVBoxLayout(graphWidget);
+                graphWidget->setLayout(layout);
+            }
+            // Get the chart view from the GraphManager and add it to the layout
+            graphWidget->layout()->addWidget(graphManager->createChartView());
+        }
+
+        //the connection for the graph button that changes the size of graph
+        connect(ui->sizeOfGraphBTN, &QPushButton::clicked, this, [this]() {
+            if(ui->sizeOfGraphBTN->text() == "1"){
+                ui->sizeOfGraphBTN->setText("3");
+                graphManager->changeRange(3);
+            }else if(ui->sizeOfGraphBTN->text() == "3"){
+                ui->sizeOfGraphBTN->setText("6");
+                graphManager->changeRange(6);
+            }else if(ui->sizeOfGraphBTN->text() == "6"){
+                ui->sizeOfGraphBTN->setText("12");
+                graphManager->changeRange(12);
+            }else if(ui->sizeOfGraphBTN->text() == "12"){
+                ui->sizeOfGraphBTN->setText("24");
+                graphManager->changeRange(24);
+            }else if(ui->sizeOfGraphBTN->text() == "24"){
+                ui->sizeOfGraphBTN->setText("1");
+                graphManager->changeRange(1);
+            }
+
+        });
+
+
+
+
 }
 
 MainWindow::~MainWindow()

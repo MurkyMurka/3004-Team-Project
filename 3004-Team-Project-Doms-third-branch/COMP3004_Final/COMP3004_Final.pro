@@ -1,5 +1,6 @@
 QT       += core gui
 
+QT += charts
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -11,6 +12,7 @@ CONFIG += c++11
 SOURCES += \
     BolusCalc.cpp \
     configdata.cpp \
+    graphmanager.cpp \
     insulinpump.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -19,6 +21,7 @@ SOURCES += \
 HEADERS += \
     BolusCalc.h \
     configdata.h \
+    graphmanager.h \
     insulinpump.h \
     mainwindow.h \
     UserProfile.h
